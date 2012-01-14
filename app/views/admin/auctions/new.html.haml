@@ -1,0 +1,7 @@
+#auction-admin.admin-page
+  %h2 Add a New Auction
+  %p.nav-links.clearfix
+    = link_to 'Back', admin_auctions_path, :class => "button back"
+  %p.admin-hints To list an auction in the "Upcoming" section, mark it as "hot" and give it an ending date of at least 24 hours in the future.
+  = render 'form'
+  

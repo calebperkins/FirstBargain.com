@@ -1,0 +1,68 @@
+- unless current_user.verified?
+  .resend-verification-email
+    %p Please verify your email address to complete your account registration.
+    %p #{link_to "Resend the verification email", activation_path, :method => :post } or #{link_to "update your email", edit_account_path}.
+.block-first
+  %h2.redeem-auctions
+    Auctions to Redeem
+  - if @winnings.empty?
+    %p You have no auctions to redeem. Keep playing!
+  - else
+    %p Congratulations! You've recently won something. Click "redeem" to process your order for shipping!
+    %p <strong>Please note:</strong> You have up to 7 days to redeem an auction after its closing.
+    %table#redeemable-auctions
+      %tr
+        %th.image
+        %th.name Product Name
+        %th.auction-price.alignC Auction Price
+        %th.shipping-price.alignC Shipping
+        %th.total-price.alignC Total
+        %th.redeem
+      - @winnings.each do |auction|
+        %tr
+          %td= link_to image_tag(auction.product.main_picture.url(:thumb), size: "70x65"), auction
+          %td= link_to auction.product.name, auction
+          %td.alignC= number_to_currency auction.going_price
+          %td.alignC= shipping_price auction.product
+          %td.alignC
+            %strong= number_to_currency auction.total_won_price
+          %td.alignC= link_to "Redeem", new_order_path(:buyable => auction.id, :kind => :auction), :class => "button"
+.block-middle
+  %h2.my-wins My Wins
+  %p At First Bargain, you can win up to #{Rails.configuration.monthly_win_limit} times a month. This gives everyone a fair chance to win.
+  %table#auction-monthly-wins
+    - [Rails.configuration.monthly_win_limit, @wins.size].max.times do |i|
+      - if i.zero?
+        <tr>
+      - elsif i.multiple_of?(5)
+        </tr><tr>
+      %td
+        %p
+          - if @wins[i]
+            = link_to image_tag(@wins[i].product.main_picture.url(:thumb), size: "70x65"), @wins[i]
+.block-last
+  %h2.buynow-auctions Auctions to Buy Now
+  - if @buynows.empty?
+    %p You have no auctions to Buy Now. Check out our #{link_to "rewards page", rewards_path} to learn more about our Buy Now feature.
+    %p <strong>Please note:</strong> "Buy Now" is available for 24 hours after an auction has ended.
+  - else
+    %p You may "Buy Now" the following auctions. Check out our #{link_to "rewards page", rewards_path} to learn more about our Buy Now feature.
+    %p <strong>Please note:</strong> "Buy Now" is available for 24 hours after an auction has ended.
+    %table#buynow-auctions
+      %tr
+        %th.image
+        %th.name Product Name
+        %th.auction-price.alignC Buy Now Price
+        %th.shipping-price.alignC Shipping
+        %th.total-price.alignC Total
+        %th.redeem
+      - @buynows.each do |a|
+        %tr
+          %td= link_to image_tag(a.product.main_picture.url(:thumb), size: "70x65"), a
+          %td= link_to a.product.name, a
+          %td.alignC= number_to_currency a.buy_now_price(current_user)
+          %td.alignC= shipping_price a.product
+          %td.alignC
+            %strong= number_to_currency a.total_buy_now_price(current_user)
+          %td.alignC= link_to "Buy Now", new_order_path(:buyable => a.id, :kind => :buynow), :class => "button"
+  = will_paginate @buynows

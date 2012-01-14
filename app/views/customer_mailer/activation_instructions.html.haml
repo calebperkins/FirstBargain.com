@@ -1,0 +1,19 @@
+- content_for :subject, "Account Activation"
+
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Welcome to FirstBargain! We are glad to see that you have joined us, and we look forward to bringing you amazing deals through our exciting fast-paced auctions. You are just one step away from completing your registration and confirming your e-mail address with us. You have 24 hours to finish this process, so we encourage you to go ahead and do it now.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Please confirm your email address by following the link below:
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %a{:href => new_activation_url(:code => @account.single_access_token), :style => "color:#EF7A25;"}
+      %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#EF7A25; font-size:13px; line-height:20px;"}
+        = new_activation_url :code => @account.single_access_token
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} If you have trouble viewing this link, please copy and paste the entire link into your web browser.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} We require email address confirmation to prevent abuse of our system, and to make sure you receive important notifications from us.

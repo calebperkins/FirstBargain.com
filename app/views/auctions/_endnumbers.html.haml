@@ -1,0 +1,37 @@
+.auction-ended
+  %table.auction-numbers
+    %tr.winner
+      %td.alignC(colspan="2") 
+        %p 
+          Winner: <span class="auction-last-bidder">#{ bidder @auction.username, true }</span>
+          <span class="bid-increment hasTooltip" title="#{increment_title(@auction)}"></span>
+    %tr.price
+      %td.label Auction Price:
+      %td.value 
+        %span.auction-price= number_to_currency @auction.going_price
+    %tr.credits-used
+      %td.label Paid bids placed by winner (<span class="credits-used-count">#{ @investment.credits_used }</span>): 
+      %td.value= number_to_currency @winner_investment.amount
+    %tr.bonuses-used
+      %td.label Bonus bids placed by winner (<span class="bonuses-used-count">#{@investment.bonuses_used}</span>):
+      %td.value $0.00
+    %tr.total-paid
+      %td.label Total paid by winner: 
+      %td.value= number_to_currency @auction.total_winner_price
+    %tr.shipping
+      %td.label Shipping & Handling: 
+      %td.value= shipping_price @auction.product
+    %tr.retail 
+      %td.alignC(colspan="2") Retail Value: <del>#{number_to_currency @auction.retail_price}</del>
+    %tr.discount 
+      %td.alignC(colspan="2") <span class="percentage">#{buy_now_percentage @winner_investment, @auction}</span> Off
+    %tr.ended-text
+      %td.alignC(colspan="2") Auction Ended
+    %tr.time
+      %td.alignC(colspan="2") ---
+  .loser-button
+    %p.text Check out our other live auctions:
+    %p= link_to "Home", root_path, :class => "button"
+  .winner-button
+    %p.text.blue Congratulations! You've won!
+    %p= link_to "Checkout", new_order_path(:buyable => @auction.id, :kind => :auction), :class => "button"

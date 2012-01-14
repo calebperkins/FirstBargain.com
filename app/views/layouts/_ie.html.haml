@@ -1,0 +1,42 @@
+/[if IE]
+  :css
+    .clearfix {
+      zoom: 1;
+      *display: block;
+    }
+    .clearfix-auto {
+      display: -moz-inline-stack;
+      display: inline-block;
+      zoom: 1;
+      *display: inline;
+    }
+/[if IE 8]
+  :css
+    #new-order #credit-card-form, #new-order #paypal-form {
+      min-height: 900px;
+      height: auto!important;
+    }
+/[if IE 7]
+  :css
+    #register-page #account_terms_of_service {
+      margin: 0;
+      padding: 0;
+    }
+    #register-page .field label[htmlFor="account_terms_of_service"] {
+      width: 380px;
+    }
+    form .field label[htmlFor="account_session_remember_me"], form .field label[htmlFor="shipping-address-toggle-node"] {
+      float: none;
+      width: auto;
+      line-height: 1.0em;
+      text-align: left;
+      text-transform: none;
+      margin: 0;
+    }
+    select {
+      padding: 0.6em;
+      font-size: 12px;
+      font-weight: bold;
+      border: 1px solid #CDCED0;
+      color: #808080;
+    }

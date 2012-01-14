@@ -1,0 +1,5 @@
+%tr[auction]
+  %td= link_to auction.product.name, [:admin, auction]
+  %td= auction.ending_at.to_s :admin
+  %td= number_to_currency auction.going_price
+  %td= link_to 'Edit', edit_admin_auction_path(auction)

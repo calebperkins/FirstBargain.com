@@ -1,0 +1,358 @@
+/*
+Copyright 2010 Expedient Shopping, Inc.
+Not to be copied or distributed without the written consent of Expedient Shopping, Inc.
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, 
+a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp,
+sub, sup, tt, var, dd, dl, dt, li, ol, ul, form, fieldset, input, textarea, label, 
+table, legend, caption, tbody, tfoot, thead, tr, th, td{ 
+  font-family:inherit;
+  font-weight:inherit;
+  font-style:inherit;
+  font-size:100%;
+  text-align:left;
+  margin:0;
+  padding:0;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  display: inline-block;
+}
+.clearfix_inline:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix_inline {
+  width: 100%;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+}
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #d0d0d0;
+}
+body {
+  min-width: 700px;
+  min-height: 600px;
+}
+#container {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+h1 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+#content-wrapper {
+  top: 50%;
+  margin-top: -255px;
+  left: 9%;
+  z-index: 10;
+  overflow: hidden;
+  width: 425px;
+  position: absolute;
+  padding: 30px 50px;
+  background: url(../images/viewer/20_opacity_black.png);
+  height: 410px;
+}
+#content {
+  padding: 20px;
+  border: 1px solid #1a1a1a;
+  background: url(../images/viewer/75_opacity_black.png);
+  height: 358px;
+}
+#background {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -10;
+}
+#background img {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+  width: 100%;
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+}
+/*Opera Fix*/
+body:before {
+  content:"";
+  height:100%;
+  float:left;
+  width:0;
+  margin-top:-32767px;
+} 
+img {
+  border: 0 none;
+}
+ul {
+  list-style: none;
+}
+table {
+  width: auto;
+}
+input[type="submit"] , button {
+  border: 0 none;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  background-color: #000;
+}
+input[type="submit"]:hover , button:hover {
+  cursor: pointer;
+}
+fieldset {
+  border: 0 none;
+}
+
+
+
+
+
+
+
+/*------------------------------- Typography -------------------------------*/
+a {
+  text-decoration: none;
+  color: #f3dc8c;
+}
+a:hover {
+  text-decoration: underline;
+}
+h1 {
+  text-align: right;
+  padding: 10px;
+}
+h1 a {
+  color: #fff;
+}
+h2 {
+  font-size: 1.25em;
+  color: #ebd55b;
+  margin-bottom: 20px;
+}
+h3 {
+  color: #EBD55B;
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+.error, .success  { 
+  color: #ff6333;
+  padding:5px;
+  border: 1px solid #363231;
+  margin-bottom: 12px;
+  height: 18px;
+  margin-top: -42px;
+  text-align: center;
+  font-size: 1.0em; 
+}
+.success {
+  color: #9dc075;
+}
+
+
+
+
+
+
+
+
+/*------------------------------- FORMS -------------------------------*/
+label {
+  display: block;
+  float: left;
+  width: 70px;
+  text-align: right;
+  margin-right: 10px;
+  line-height: 26px;
+  text-transform: capitalize;
+}
+input[type="text"], input[type="password"] {
+  float: left;
+  padding: 0.5em;
+  width: 225px;
+  border: 0 none;
+  background: url(../images/viewer/8_opacity_white.png);
+  color: #fff;
+  margin-right: 3px;
+}
+input[type="submit"] {
+  width: 82px;
+  height: 28px;
+  background: url(../images/viewer/submit_btn.png) no-repeat scroll 0 0;
+  font-size: 0.9em;
+  color: #c3b98d;  
+}
+input[type="submit"]:hover {
+  background: url(../images/viewer/submit_btn.png) no-repeat scroll 0 -28px;
+  color: #EBD55B;  
+}
+form .field {
+  margin-bottom: 10px;
+}
+form .actions {
+  margin-left: 80px;
+  margin-bottom: 5px;
+}
+#signin .authorized {
+  margin-bottom: 10px;
+  color: #EBD55B;
+}
+#signin .message {
+  margin-left: 80px;
+  font-size: 0.9em;
+  color: #c7c7c7;
+}
+#signin #contact-link {
+  color: #F3DC8C;
+}
+#signin #contact-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/*------------------------------- Contacts -------------------------------*/
+#contact-page #content-wrapper {
+  font-size: 1.1em;
+}
+#contact-page #content, #about-page #content  {
+  display: block;
+}
+#contacts {
+  width: 80px;
+  padding-right: 30px;
+  float: left;
+  height: 100%;
+}
+#contacts li {
+  text-align: right;
+  line-height: 35px;
+  font-weight: bold;
+}
+#contacts-info {
+  padding-left: 40px;
+  float: left;
+  border-left: 1px solid #5b5b5b;
+  height: 100%;
+}
+#contacts-info a {
+  line-height: 35px;
+}
+#contacts-info address {
+  padding-top: 25px;
+}
+#about-page {
+  display: none;
+}
+#contact-page {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------- Footer -------------------------------*/
+#footer {
+  height: 25px;
+  padding-top: 1px;
+  clear: both;
+  margin-top: -26px;
+  background: url(../images/viewer/footer_bg.png) repeat-x scroll 0 0;
+}
+#footer ul li {
+  float: right;
+} 
+#footer ul li span {
+  width: 100px;
+  text-align: center;
+  color: #fff;
+/*  text-shadow: -1px -1px #5a5a5a; */
+  text-decoration: none;
+  line-height: 25px;
+  font-family: Lucida Sans Unicode, Lucida Grande;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  display: block;
+  border-left: 1px solid #4a4a4a;
+}
+#footer ul li span:hover {
+  background: url(../images/viewer/50_opacity_black.png);
+  cursor: pointer;
+}
+#footer ul li span.selected {
+  background: url(../images/viewer/75_opacity_black.png);
+}
+#image-loader {
+  display: none;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------- Footer -------------------------------*/
+#errorExplanation {
+  height: 60px;
+} 
+#errorExplanation p {
+  margin: 0 0 5px 0;
+  color: #c5259d;
+}
+#errorExplanation ul li {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  background: url(../images/msc/bullet.gif) no-repeat left 4px;
+}

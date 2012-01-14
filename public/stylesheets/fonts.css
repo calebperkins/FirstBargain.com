@@ -1,0 +1,11 @@
+/*
+ * CUSTOM FONT DECLARATIONS GO HERE
+ */
+
+@font-face {
+  font-family: 'Andika';
+  src: url('../fonts/embed/AndBasR-webfont.eot');
+  src: local('firstbarginfonts'), url('../fonts/embed/AndBasR-webfont.woff') format('woff'), url('../fonts/embed/AndBasR-webfont.ttf') format('truetype'), url('../fonts/embed/AndBasR-webfont.svg#webfont8NZgWOv8') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

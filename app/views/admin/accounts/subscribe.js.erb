@@ -1,0 +1,5 @@
+<% if @account.subscribed? %>
+$("#subscribed-link a").text("Yes").addClass("positive-admin-button").removeClass("negative-admin-button");
+<% else %>
+$("#subscribed-link a").text("No").addClass("negative-admin-button").removeClass("positive-admin-button");
+<% end %>

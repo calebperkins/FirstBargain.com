@@ -1,0 +1,21 @@
+#auction-admin.admin-page
+  %h2 #{ @auction.product.name }
+  %p.nav-links.clearfix
+    = link_to 'Back', admin_auctions_path, :class => "button back"
+    = link_to "View on Site", @auction, :class => "button", :id => "view-on-site"
+    = link_to "Feature this Auction", (new_admin_featured_auction_path + "?auction_id=#{@auction.id}"), :class => "button", :id => "feature-item"
+    = link_to 'Edit', edit_admin_auction_path(@auction), :class => "button edit"
+  .block-first
+    %p.auction-details <strong>Ending at:</strong> #{@auction.ending_at.to_s :admin}
+    %p.auction-details <strong>Going price:</strong> #{number_to_currency @auction.going_price}
+    %p.auction-details <strong>Last bidder:</strong> #{@auction.username}
+  .block-last
+    %h2 Bid history
+    %table
+      %tr
+        %th Bidder
+        %th Time
+      - @bids.each do |bid|
+        %tr
+          %td= link_to bid.username, [:admin, bid.account]
+          %td= bid.created_at.to_s :admin

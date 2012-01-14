@@ -1,0 +1,19 @@
+#category-admin.admin-page
+  .block-first
+    %h2 Category Listing
+    #add-new-item
+      = form_for @category, :url => admin_categories_path do |f|
+        .field.clearfix
+          = f.text_field :name
+          = f.submit "Add New Category", :class => "button"
+  .block-last
+    %table.categories
+      %tr
+        %th.name Categories
+        %th.id ID
+        %th.edit Edit
+      - @categories.each do |category|
+        %tr[category]
+          %td= category.id
+          %td.name= category.name
+          %td= link_to "Edit", edit_admin_category_path(category)

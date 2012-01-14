@@ -1,0 +1,42 @@
+#invites-page
+  %h2.invitations Invitations
+  #invites-tabs
+    %ul
+      %li#invite-friends-tab.selected Invite Friends
+      %li#your-invites-tab Your Invites
+  #invite-friends
+    %p.invite-explanation For every friend you invite, you will receive 20 free bids after their first purchase.
+    = form_for @invitation do |f|
+      - if @invitation.errors.any?
+        #errorExplanation
+          %p Oops, please correct the following items to proceed:
+          %ul
+            - @invitation.errors.full_messages.each do |msg|
+              %li= msg
+      %p.field.clearfix
+        = f.label :name, "Your Name:"
+        = f.text_field :name
+      %p.field.clearfix
+        = f.label :emails, "Send Invites To:"
+        = f.text_field :emails 
+        %span separate emails using commas
+      %p.field.clearfix
+        = f.label :message, "Personalized Message:"
+        = f.text_area :message
+      %p.actions.clearfix
+        = f.submit "Submit", :class => "button"
+    %p.link-explanation Below is your personal invitation link. Share it on Facebook/Twitter or copy & paste into your emails.
+    %p.invitation-link= new_account_url :u => current_user.username, :secure => true
+  #your-invites
+    %table
+      %tr
+        %th.username Username
+        %th.join-date Join Date
+        %th.made-purchase Made Purchase?
+        %th.bonus-bids Bonus Bids 
+      - current_user.children.each do |u|
+        %tr
+          %td= u.username
+          %td= u.created_at.to_s :default
+          %td= u.has_purchased ? "yes" : "no"
+          %td= u.has_purchased ? "+20 bids" : ""

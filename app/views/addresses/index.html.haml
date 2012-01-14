@@ -1,0 +1,6 @@
+#addresses  
+  %h2.saved-addresses Saved Addresses
+  %p.new-address
+    = link_to "Add New Address", new_address_path, :class=>"add-new-address button"
+  = render @addresses
+  

@@ -1,0 +1,284 @@
+ /*
+ * BID STATUS
+ */
+#bid-status {
+  background: url(../images/opacity/black-70.png);
+  padding: 10px;
+  font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+  width: 290px;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  color: #fff;
+  display: none;
+}
+#bid-status p {
+  text-align: center;
+}
+#bid-status .success {
+  color: #0088CC;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+#bid-status .error {
+  color: #f22E2E;
+  margin-bottom: 5px;
+  font-weight: bold; 
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+/*
+ * XHR RESPONSE
+ */ 
+#xhr-status {
+  background: #efe8c5;
+  border: 2px solid #d0c9a3;
+  font-size: 14px;
+  width: auto;
+  position: fixed;
+  left: 5px;
+  bottom: 5px;
+  z-index: 9999;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding: 0 10px;
+  display: none;
+} 
+#xhr-status p {
+  width: auto;
+  text-align: center;
+  padding-bottom: 3px;
+}
+#xhr-status p.warning {
+  color: #ff0000;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+/*
+ * BUY NOW POPUP
+ */ 
+#buy-now-popup {
+  display: none;
+  font-size: 12px;
+  background: url(../images/opacity/black-80.png);
+  border: 2px solid #5d5d5d;
+  color: #fff;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding: 10px;
+  position: fixed;
+  width: 400px;
+  left: 50%;
+  margin-left: -200px;
+  top: 20%;
+  z-index: 9999;
+}
+#error-overlay {
+  display: none;
+  font-size: 12px;
+  background: #fff;
+  color: #fff;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  border: 5px solid #C7C7C7;
+  padding: 10px 10px 30px 10px;
+  position: fixed;
+  width: 400px;
+  left: 50%;
+  margin-left: -200px;
+  top: 20%;
+  z-index: 9999; 
+}
+#error-overlay .bid-unsuccessful {
+  margin-top: -10px;
+  height: 38px;
+  margin-bottom: 25px;
+  background: url(../images/msc/bid-unsuccessful.png) no-repeat;
+  font-size: 0;
+  text-indent: -9999px;
+}
+#error-overlay .explanation {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-weight: bold;
+  color: #3B3B3B;
+  padding-left: 10px;
+}
+.overlay-popup-toggle {
+  float: right;
+  margin: -4px -4px 0 0;  
+} 
+.overlay-popup-toggle:hover {
+  cursor: pointer;
+}
+#buy-now-popup p.stop-message {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #70c7ed;
+  margin-bottom: 7px;
+}
+#buy-now-popup p.buy-now-price {
+  margin-bottom: 5px;
+}
+#buy-now-popup p.cheaper-than-hint {
+  color: #ef7a25;
+  margin-bottom: 13px;
+}
+#buy-now-popup p.button {
+  margin-bottom: 13px;
+}
+#buy-now-popup a.button {
+  width: 105px;
+  height: 30px;
+  background: url(../images/buttons/buy-now-popup.png);
+}
+#buy-now-popup p.explanation {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+#buy-now-popup table {
+  width: 50%;
+}
+#buy-now-popup table td.value {
+  text-align: right;
+}
+#buy-now-popup table tr.buy-now-price {
+  color: #70c7ed;
+  font-weight: bold;
+}
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+/*
+ * FLASH MESSAGES
+ */
+.notice, .alert {
+  font-size: 0.9em;
+  background: #F3EBD7;
+  padding: 10px 0px;
+  font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #51b222;
+  margin: 0px auto 30px;
+  text-align: center;
+}
+.alert {
+  color: #f22E2E;
+}
+/*
+ * ERROR MESSAGES
+ */
+#errorExplanation {
+  font-size: 0.9em;
+  border: 2px solid #ef9aae;
+  color: #f22e2e;
+  padding: 15px;
+  margin-bottom: 35px;
+}
+#errorExplanation p {
+  margin: 0 0 7px 0;
+  color: #E50F42;
+}
+#errorExplanation ul li {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  background: url(../images/msc/bullet.gif) no-repeat left 4px;
+  color: #808080;
+}
+.fieldWithErrors input {
+  background-color: #fee9fb;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * ORDER FAILURE
+ */
+#order-failure p {
+  margin-bottom: 13px;
+}
+#order-failure code {
+  font-size: 0.9em;
+  font-weight: bold;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOR THOSE RUNNING ANCIENT COMPS */
+#unsupported-browser {
+  font-weight: bold;
+  border: 2px solid #c7c7c7;
+  padding: 5px;
+  font-size: 0.9em;
+  width: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: #F3EBD7;
+}

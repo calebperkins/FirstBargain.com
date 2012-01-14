@@ -1,0 +1,11 @@
+- content_for :title, "FirstBargain.com - User Sign In"
+
+#login-page.clearfix
+  .left-column-2
+    %h2.sign-in
+      Sign In to Your Account
+    = render 'form'
+  .right-column-2
+    %h2.new-to-website New to FirstBargain.com?
+    %p(style="line-height:1.3em;") Welcome to FirstBargain.com, a fun and exciting auction website dedicated to bargain seekers. At First Bargain you can win designer handbags, iPads, gift cards, and all sorts of other popular products for incredibly low prices.
+    %p= link_to "Register For Free", new_account_path, :id => "signup-for-free", :class => "button"

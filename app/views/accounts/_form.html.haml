@@ -1,0 +1,36 @@
+= form_for @account, :url => account_path(:secure => true) do |f|
+  - if @account.errors.any?
+    #errorExplanation
+      %p Oops, please correct the following items to proceed:
+      %ul
+        - @account.errors.full_messages.each do |msg|
+          %li= msg
+  .field.input(style="margin-bottom:10px;")
+    = f.label :username, "Username:"
+    = f.text_field :username
+  #username-explanation
+    %p Usernames must be between 3 to 14 characters, and alphanumeric only (A-Z, 0-9). No spaces or special characters are allowed.
+    %p.last <strong>Please note:</strong> that your username will be viewable by others each time you bid.
+  .field.input
+    = f.label :email, "Email address:"
+    = f.text_field :email
+  .field.input
+    = f.label :password, "Password:"
+    = f.password_field :password
+  .field.input
+    = f.label :password_confirmation, "Confirm password:"
+    = f.password_field :password_confirmation
+  .field#dob
+    = f.label :birth_date, "Date of birth:", :class => "account-birth-date"
+    %span.account-birth-date
+      = f.date_select :birth_date, :start_year => Date.today.year, :end_year => 1910
+  .checkbox-agreements
+    = f.check_box :subscribed
+    %p
+      = f.label :subscribed, "Send me coupons and exclusive offers via FirstBargain newsletters."
+  .checkbox-agreements#tos-agreement
+    = f.check_box :terms_of_service
+    %p
+      = f.label :terms_of_service, "I have read and agree to FirstBargain's #{ link_to "Terms of Service", tos_path(:popup=> true), :class=> "popup" } and #{link_to "Privacy Policy", privacy_path(:popup => true), :class=>"popup"}. I also agree to open one account per person and per household.".html_safe
+  .actions
+    = f.submit "Register For Free", :class => "button"

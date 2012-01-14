@@ -1,0 +1,42 @@
+#buy-now-popup.buy-now
+  %p.overlay-popup-toggle= image_tag "msc/close-icon.gif", size: "16x16"
+  %p.stop-message You should stop bidding!
+  %p.buy-now-price Buy this <strong class="popup-product-name">#</strong> for only <strong class="value">#</strong> more!
+  %p.cheaper-than-hint **this is cheaper than the <strong>auction price</strong> plus one more bid.
+  %p.button= link_to "Buy Now", root_path, :class => "button"
+  %p.explanation How is the Buy Now price calculated?
+  %table
+    %tr.retail-price
+      %td.label Retail Value:
+      %td.value
+    %tr.credits-used
+      %td.label - Paid bids used (<span class="credits-used-count"></span>):
+      %td.value
+    %tr.bonuses-used
+      %td.label - Bonus bids used (<span class="bonuses-used-count"></span>):
+      %td.value $0.00
+    %tr.buy-now-price 
+      %td.label Buy Now Price:
+      %td.value
+#error-overlay
+  %p.overlay-popup-toggle= image_tag "msc/close-icon.gif", size: "16x16"
+  %p.bid-unsuccessful Sorry, your bid did not succeed:
+  %p.explanation
+
+#error-modal-dialog
+
+- if (params[:beginner].present? or cookies[:beginner].present?) && (params[:page] == nil)
+  - cookies.delete :beginner
+  #beginner-auction-popup
+    .overlay-popup-toggle= image_tag "msc/close-icon.gif", size: "16x16"
+    .block
+      %p.welcome Try a beginner auction
+    .block
+      %p.question What are Beginner Auctions?
+      %p.answer They are auctions reserved only for new customers like you. You will see them marked with an orange border.
+    .block
+      %p.question Why start with a Beginner Auction?
+      %p.answer Because only newcomers can participate in them, these auctions are usually <strong>much</strong> easier to win.
+    .block.signature
+      %p Happy Bidding!
+      %p <em>-- FirstBargain Team</em>

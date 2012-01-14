@@ -1,0 +1,17 @@
+- content_for :title, "FirstBargain.com - FAQ: Shipping & Returns"
+
+#faq-page-show
+  %h2 Shipping & Returns
+  .block
+    %h3 Order Status
+    %p To check the status on any order, go to the #{ logged_in? ? (link_to "My Account", account_path) : "\"My Account\"" } page and choose the #{ logged_in? ? (link_to "Order & Account History", orders_path) : "\"Order & Account History\"" } tab on the left side.
+  .block
+    %h3 Shipping Costs
+    %p Shipping & handling costs are clearly displayed for each item beneath the going price of the auction. These rates apply to all residences and businesses within the 48 US contiguous states. We currently do not ship to P.O. Boxes or any locations outside the United States.
+  .block
+    %h3 Delivery Times
+    %p You can expect most items to arrive within 14 days after placing your order. If you have not received an item after this time, please #{ link_to "contact us", contact_path } to ensure successful delivery.
+  .block
+    %h3 Refunds & Returns
+    %p Items can be returned within 14 days for a refund unless otherwise noted. The item must be in its original condition and packaging to qualify for a full refund, exclusive of bids used. For instructions on obtaining a return authorization, see our #{ link_to "Refunds & Returns", returns_path } page.
+    %p <strong>IMPORTANT:</strong> Please #{ link_to "contact us", contact_path } first before attempting to return an item or we may be unable to process a refund.

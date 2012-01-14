@@ -1,0 +1,28 @@
+-#
+  #same-shipping-billing.field.clearfix-auto
+    = f.check_box :different_shipping, :id => "shipping-address-toggle-node"
+    = f.label :different_shipping, "I would like to ship my product to a different address.", :for => "shipping-address-toggle-node"
+#shipping-address(style="display:block")
+  %p.field(style="padding-top:10px;")
+    = f.label :shipping_name, "Recipient Name"
+    = f.text_field :shipping_name
+  %p.field.address
+    = f.label :shipping_address, "Shipping Address"
+    = f.text_field :shipping_address
+  %p.field.address
+    = f.label :shipping_address_2, "Address 2"
+    = f.text_field :shipping_address_2
+  %p.field
+    = f.label :shipping_city, "City"
+    = f.text_field :shipping_city
+  .field.clearfix
+    %p.state
+      = f.label :shipping_state, "State"
+      = f.select :shipping_state, Address::STATES
+    %p.zip
+      = f.label :shipping_zip, "Zip"
+      = f.text_field :shipping_zip, :size => 5, :maxlength => 5
+  %p.field.phone
+    = f.label :shipping_phone, "Shipping Phone"
+    = f.text_field :shipping_phone
+  %p.phone-example e.g. 305-555-0123

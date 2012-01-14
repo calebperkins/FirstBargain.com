@@ -1,0 +1,801 @@
+/*
+ * TWO COLUMN LAYOUTS --- THE SIZE AND MARGINS OF CONTAINERS MUST BE WRITTEN HERE
+ */
+.left-column-1, .left-column-2, .left-column-3, .right-column-1, .right-column-2, .right-column-3, .left-column-4 {
+  float: left;
+  min-height: 395px;
+  height: auto!important; 
+}
+.right-column-1, .right-column-2, .right-column-3, .right-column-4 {
+  float: right;
+}
+/* LEFT COLUMNS */
+.left-column-1 {
+  padding: 40px 0;
+  width: 52%;
+  background: url(../images/wrapper/shadow-right.png) repeat-y right center;
+  min-height: 505px;
+  height: auto!important;
+}
+.left-column-2 {
+  width: 48%;
+  margin-left: 15px;
+}
+.left-column-3 {
+  width: 54%;
+}
+.left-column-4 {
+  width: 50%;
+  padding: 40px 0;
+}
+/* RIGHT COLUMNS */
+.right-column-1 {
+  padding-top: 40px;
+  width: 40%;
+}
+.right-column-2 {
+  width: 46%;
+}
+.right-column-3 {
+  width: 42%;
+}
+.right-column-4 {
+  width: 44%;
+  padding-right: 4%;
+  height: auto!important;
+}
+
+
+
+
+
+
+
+
+
+
+  
+/*
+ * LOGIN PAGE
+ */
+#login-page h2 {
+  margin-bottom: 50px;
+}
+h2.sign-in {
+  background: url(../images/text/sign-in-to-your-account.gif);
+}
+h2.new-to-website {
+   background: url(../images/text/new-to-website.gif);
+}
+#login-page .field label {
+  
+}
+#login-page .password-reset {
+  margin-left: 70px;
+  font-size: 0.8em;
+  color: #7c7c7c;
+  margin-bottom: 15px;
+}
+#register-for-free, #signup-for-free, #buy-bid-credits {
+  width: 154px;
+  height: 35px;
+  background: url(../images/buttons/get-started.gif);
+}
+#register-for-free {
+  background-position: 0 -80px;
+}
+#buy-bid-credits {
+  background-position: 0 -40px;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+ * ACTIVATION PAGE
+ */
+h2.activate-your-account {
+  background: url(../images/text/activate-your-account.gif);
+  margin-bottom: 50px;
+}
+#account-activation p {
+  margin-bottom: 35px;
+}  
+#account-activation form .button {
+  background: url(../images/buttons/activate-account.gif);
+  width: 140px;
+  height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+ * PASSWORD RESET
+ */
+h2.reset-your-password {
+  background: url(../images/text/reset-your-password.gif);
+  margin-bottom: 50px;
+}
+#reset-password-page p {
+  margin-bottom: 35px;
+}
+#reset-password-page label {
+  width: 140px;
+}
+#reset-password-page form input[type="text"] {
+  float: left;
+  width: 200px;
+}
+#reset-password-page form .button {
+  background: url(../images/buttons/reset-password.png);
+  width: 138px;
+  height: 23px;
+  margin: 4px 5px 4px 5px;
+  float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * STATIC PAGES TYPOGRAPHY
+ */
+h2.about-us {
+  background: url(../images/text/about-us.gif);
+}
+h2.contact-us {
+  background: url(../images/text/contact-us.gif);  
+} 
+h2.faq {
+  background: url(../images/text/faq.gif);
+  margin-bottom: 35px;
+}
+h2.privacy-policy {
+  background: url(../images/text/privacy-policy.gif);  
+}
+h2.terms-of-service {
+  background: url(../images/text/terms-of-service.gif);  
+}
+h2.how-to-play {
+  background: url(../images/text/how-to-play.gif);
+  margin-bottom: 55px;
+}
+h2.return-policy {
+  background: url(../images/text/return-policy.gif); 
+}
+h2.guarantee {
+  background: url(../images/text/guarantee.gif);
+}
+h2.bidding-tips {
+  background: url(../images/text/bidding-tips.gif);
+}
+h2.site-rules {
+  background: url(../images/text/site-rules.gif);
+}
+#flat-page .unit {
+  margin-bottom: 25px;
+}
+#flat-page p, #flat-page h4, #flat-page dl, #flat-page ul, #flat-page ol {
+  font-size: 1.0em;
+}
+#flat-page h3 {
+  border-bottom: 1px solid #c7c7c7;
+  margin-bottom: 5px;
+}
+#flat-page h4 {
+  margin-bottom: 5px;
+  color: #0088CC;
+  font: 1.15em "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#flat-page p {
+  line-height: 1.4em;
+  margin-bottom: 15px;
+}
+.right-column-2 p, .right-column-3 p  {
+  padding-right: 75px;
+  margin-bottom: 35px;
+}
+#flat-page address {
+  margin-bottom: 13px;
+  padding-left: 25px;
+}
+#flat-page span.help-link {
+  color: #2f2f2f;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * ABOUT PAGE
+ */
+#flat-page #about-tabs {
+  margin-bottom: 15px;
+}
+#flat-page #about-tabs ul {
+  height: 27px;
+  line-height: 27px;
+  background: url(../images/wrapper/about-tabs/bg.png) repeat-x;
+}
+#flat-page #about-tabs ul li {
+  float: left;
+  font-size: 0;
+  text-indent: -9999px;
+  height: 27px;
+  margin-bottom: 0;
+}
+#flat-page #about-tabs ul li:hover {
+  cursor: pointer;
+}
+#about-tabs ul li#overview-tab {
+  background: url(../images/wrapper/about-tabs/overview-bg.png) no-repeat;
+  width: 105px;
+}
+#about-tabs ul li#team-tab {
+  background: url(../images/wrapper/about-tabs/team-bg.png) no-repeat;
+  width: 105px;
+  margin-left: 5px;
+}
+#about-tabs ul li#advisory-tab {
+  background: url(../images/wrapper/about-tabs/advisory-bg.png) no-repeat;
+  width: 150px;
+  margin-left: 5px;
+}
+#flat-page #about-tabs ul li.selected {
+  background-position: 0 -27px;
+}
+#about-overview {
+  
+}
+#about-team, #about-advisory {
+  display: none;
+}
+#about-team span.position {
+  font-weight: normal;
+  color: #808080;
+}
+.blurb {
+  width: 90%;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * HOW TO PLAY
+ */
+body#tutorial h3 {
+  border-bottom: 0 none;
+}
+body#tutorial #how-to-menu {
+  margin-bottom: 35px;
+}
+body#tutorial #how-to-menu ul {
+  height: 27px;
+  line-height: 27px;
+  background: url(../images/wrapper/about-tabs/bg.png) repeat-x;
+}
+body#tutorial #how-to-menu ul li {
+  float: left;
+  font-size: 0;
+  text-indent: -9999px;
+  height: 27px;
+  margin-bottom: 0;
+  width: 105px;
+}
+body#tutorial #how-to-menu ul li a {
+  display: block;
+  outline: 0 none;
+  color: #dedede;
+  width: 105px;
+  height: 27px;
+}
+body#tutorial #how-to-menu ul li:hover {
+  cursor: pointer;
+}
+#how-to-menu ul li#auctions-tab {
+  background: url(../images/wrapper/how-to-tabs/auctions.gif) no-repeat;
+  margin-left: 318px;
+}
+#how-to-menu ul li#rewards-tab {
+  background: url(../images/wrapper/how-to-tabs/rewards.gif) no-repeat;
+  margin-left: 5px;
+}
+#how-to-menu ul li#guarantee-tab {
+  background: url(../images/wrapper/how-to-tabs/guarantee.gif) no-repeat;
+  margin-left: 5px;
+}
+body#tutorial #how-to-menu ul li.current {
+  background-position: 0 -27px;
+}
+#how-to-play-page #how-to-overview {
+  padding-top: 250px;
+  background: url(../images/how-to-play/steps.jpg) no-repeat;
+  margin-bottom: 20px;
+}
+#how-to-play-page #how-to-overview ul {
+  width: 290px;
+  padding-left: 10px;
+  margin-right: 20px;
+  float: left;
+}
+#how-to-play-page #how-to-overview ul.last {
+  margin-right: 0;
+  width: 280px;
+}
+#how-to-play-page #how-to-overview li {
+  color: #808080;
+  margin-bottom: 13px;
+  padding-left: 10px;
+  font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#how-to-play-page #get-started-now {
+  padding: 0 10px 0 0;
+  margin-bottom: 45px;
+}
+#how-to-play-page #sign-up, #how-to-play-page #buy-bids {
+  float: right;
+  margin-right: 15px;
+}
+#how-to-play-page #sign-up h3 , #how-to-play-page #buy-bids h3 {
+  margin-bottom: 0;
+}
+#how-to-play-page #sign-up h3 {
+  line-height: 36px;
+}
+#how-to-play-page #buy-bids h3 {
+  line-height: 0.9em;
+  margin-bottom: 0.1em;
+}
+#how-to-play-page #buy-bids p {
+  margin-bottom: 0;
+}
+#how-to-play-page ol {
+  margin-left: 45px;
+}
+#how-to-play-page ol li {
+  margin-bottom: 5px;
+}
+#how-to-play-page .steps h3 {
+  font-style: normal;
+}
+#member-rewards-page .how-to-cell {
+  margin-bottom: 20px;
+}
+#member-rewards-page .how-to-cell dl.explanation {
+  padding-left: 405px;
+  padding-top: 20px;
+}
+#member-rewards-page .how-to-cell dl.explanation dt {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #EF7A25;
+}
+#member-rewards-page .how-to-cell dl.explanation dd {
+  margin-bottom: 15px;
+  color: #5C5C5C;
+}
+
+
+
+
+
+
+
+
+/*
+ * FAQ PAGES
+ */
+#faq-page-index .row {
+  margin-bottom: 35px;
+}
+#faq-page-index .column {
+  float: left;
+  width: 220px;
+  margin-right: 20px;
+}
+#faq-page-index .column.last {
+  margin-right: 0;
+}
+#faq-page-index .column .button {
+  width: 220px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+#faq-page-index .column.new-users .button {
+  background: url(../images/faq/new-to-firstbargain.png);  
+}
+#faq-page-index .column.auctions .button {
+  background: url(../images/faq/auctions.png);  
+}
+#faq-page-index .column.account .button {
+  background: url(../images/faq/account.png); 
+}
+#faq-page-index .column.shipping .button {
+  background: url(../images/faq/shipping.png); 
+}
+#faq-page-index .column.payment .button {
+  background: url(../images/faq/payment.png); 
+}
+#faq-page-index .column ul li {
+  margin: 0 0 8px 20px;
+  font-size: 0.95em;
+}
+#faq-page-index .column .button.revealed {
+  background-position: 0 -50px;
+}
+#faq-page-show h2 {
+  text-indent: 0;
+  font-size: 2.0em;
+}
+#faq-page-show h3 {
+  width: 90%;
+}
+#faq-page-show p {
+  width: 80%;
+}
+#faq-page-show p {
+  margin-left: 20px;
+}
+
+
+
+
+
+
+/*
+ * FAQ
+ */
+#flat-page .faq-block {
+  margin-bottom: 20px;
+}
+#flat-page .faq-block p {
+  margin-bottom: 0;
+}
+#flat-page .faq-block h3 {
+  padding-left: 15px;
+  background: url(../images/msc/minus.gif) no-repeat left center;
+  font-size: 1.4em;
+}
+#flat-page .faq-block h3:hover {
+  cursor: pointer;
+}
+#flat-page .faq-hidden p {
+  display: none;
+}
+#flat-page .faq-hidden h3 {
+  background: url(../images/msc/plus.gif) no-repeat left center;
+  border-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * CONTACT FORM
+ */
+#how-to-contact {
+  margin-bottom: 25px;
+}
+#how-to-contact p.blurb {
+  margin-bottom: 7px;
+}
+p.ccbill-contact {
+  margin-left: 15px;
+}
+#recaptcha_widget_div {
+  margin: 0 0 15px 110px;
+  width: 450px;
+}
+#contact-form .field label {
+  width: 100px;
+}
+#contact-form .actions {
+  margin-left: 110px;
+}
+#contact-form .actions input {
+  background: url(../images/buttons/submit.png);
+  width: 80px;
+  height: 30px;
+}
+
+
+
+
+
+
+
+/*
+ * BIDDING TIPS & SITE RULES
+ */
+#tips-rules-wrapper {
+  float: right;
+  margin-right: -25px;
+}
+#tips-rules-wrapper #bidding-tips-link {
+  width: 150px;
+  height: 35px;
+  background: url(../images/buttons/bidding-tips.png);
+  margin-bottom: 5px;
+}
+#tips-rules-wrapper #site-rules-link {
+  width: 150px;
+  height: 35px;
+  background: url(../images/buttons/site-rules.png);
+}
+/* BIDDING TIPS */
+#bidding-tips-page {
+  background: url(../images/how-to-play/bidding-tips.jpg) bottom right no-repeat;
+}
+#bidding-tips-page .wrapper {
+  width: 60%;
+}
+/* SITE RULES */
+#site-rules-page {
+}
+#site-rules-page ol {
+  list-style: decimal inside;
+  font-weight: bold;
+  margin-left: 25px;
+  width: 90%;
+}
+#site-rules-page ol li {
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * PENNY PROMO
+ */
+.penny-promo h1#logo {
+  width: 195px;
+  height: 40px;
+  background: url(../images/header/logo.gif) no-repeat;
+  text-indent: -9999px;
+  font-size: 0;
+}
+.penny-promo #splash {
+  height: 302px;
+  background: url(../images/promo/main-splash.jpg) no-repeat;
+  margin-bottom: 20px;
+}
+.penny-promo #ourprice {
+  height: 53px;
+  background: url(../images/promo/ourprices.jpg) center center no-repeat;
+  margin-bottom: 35px;
+}
+.penny-promo #firstbargain-vs-ebay {
+  height: 321px;
+  background: url(../images/promo/firstbargain-vs-ebay.jpg) no-repeat;
+  margin-bottom: 20px;
+}
+.penny-promo #penny-revolution {
+  height: 452px;
+  background: url(../images/promo/penny-revolution.jpg) no-repeat;
+  margin-bottom: 20px;
+}
+.penny-promo #firstbargain-savings {
+  height: 40px;
+  width: 990px;
+  margin-left: -25px;
+  background: url(../images/promo/firstbargain-savings.png) no-repeat;
+}
+.penny-promo #savings-banner {
+  width: 950px;
+  height: 268px;
+  background: url(../images/promo/savings-banner.jpg) no-repeat;
+  margin-bottom: 55px;
+}
+.penny-promo #ended-auctions-text {
+  height: 40px;
+  width: 990px;
+  margin-left: -25px;
+  background: url(../images/promo/ended-auctions-text.png) no-repeat;
+  margin-bottom: 10px;
+}
+.penny-promo #ended-auctions {
+  height: 400px;
+  width: 980px;
+  margin-left: -20px;
+  background: url(../images/promo/ended-auctions.jpg) no-repeat;
+  margin-bottom: 35px;
+}
+.penny-promo #live-auctions-text {
+  height: 40px;
+  width: 990px;
+  margin-left: -25px;
+  background: url(../images/promo/live-auctions-text.png) no-repeat;
+  margin-bottom: 10px;
+}
+.penny-promo #live-auctions {
+  margin-bottom: 55px;
+}
+.penny-promo #thousands-satisfied {
+  height: 77px;
+  background: url(../images/promo/thousands-satisfied.jpg) no-repeat;
+  margin-bottom: 55px;
+}
+.penny-promo #testimonials {
+  float: left;
+  height: 700px;
+  width: 460px;
+  background: url(../images/promo/testimonials.jpg) no-repeat;
+}
+/*
+ * PROMO REGISTRATION FORM
+ */
+.penny-promo #registration-wrapper {
+  margin-bottom: 55px;
+}
+.penny-promo #registration-form {
+  float: right;
+  color: #fff;
+}
+.penny-promo #registration-form .header {
+  height: 86px;
+  width: 460px;
+  background: url(../images/promo/signup-wrap-01.jpg) no-repeat;
+}
+.penny-promo #registration-form .body {
+  padding: 45px 20px 55px 30px;
+  width: 410px;
+  background: url(../images/promo/signup-wrap-02.jpg);
+}
+.penny-promo #registration-form .footer {
+  height: 24px;
+  width: 460px;
+  background: url(../images/promo/signup-wrap-03.jpg) no-repeat;  
+}
+.penny-promo #registration-form label {
+  color: #fff;
+}
+.penny-promo #registration-form .field label {
+  font-weight: bold;
+  width: 140px;
+}
+.penny-promo #registration-form input[type="text"], .penny-promo #registration-form input[type="password"], .penny-promo #registration-form select {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.penny-promo #registration-form #username-explanation {
+  margin-left: 150px;
+}
+.penny-promo #registration-form #username-explanation p {
+  color: #fff;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+.penny-promo #registration-form #username-explanation p.last {
+  margin-bottom: 25px;
+}
+.penny-promo #registration-form #dob {
+  margin-bottom: 45px;
+}
+.penny-promo #registration-form .checkbox-agreements {
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+.penny-promo #registration-form #tos-agreement {
+  margin-bottom: 45px;
+}
+.penny-promo #registration-form .checkbox-agreements input {
+  float: left;
+  margin-top: 2px;
+  margin-left: 25px;
+}
+.penny-promo #registration-form .checkbox-agreements p {
+  padding-left: 45px;
+  color: #fff;
+}
+.penny-promo #registration-form .actions input {
+  margin-left: 35px;
+  height: 82px;
+  width: 347px;
+  background: url(../images/promo/signup-button.png) no-repeat;
+}
+.penny-promo #penny-quotes {
+  height: 243px;
+  background: url(../images/promo/penny-quotes.jpg) no-repeat;
+}
+/*
+ * PROMO REGISTRATION FORM ERROR MESSAGES
+ */
+.penny-promo #registration-form #errorExplanation {
+  border: 1px solid #524f3e;
+  color: #8f5d5d;
+}
+.penny-promo #registration-form #errorExplanation p {
+  font-weight: bold;
+  color: #ee4545;
+}
+.penny-promo #registration-form #errorExplanation ul li {
+  color: #e5e4d9;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * PROMO LANDING PAGE
+ */
+#promo-landing-page #penny-head {
+  height: 230px;
+  background: url(../images/promo/penny-head.jpg) no-repeat;
+  margin-bottom: 20px;
+} 
+#promo-landing-page #scroll-out {
+  margin-bottom: 55px;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * PROMO REGISTRATION PAGE
+ */
+#registration-page #scroll-out {
+  margin-bottom: 25px;
+}
+#registration-page #penny-head {
+  width: 990px;
+  margin-left: -25px;
+  height: 184px;
+  background: url(../images/promo/penny-head-2.png) no-repeat;
+  margin-bottom: 35px;
+}

@@ -1,0 +1,541 @@
+/*
+ * DASHBOARD TITLES
+ */
+h2.my-credits {
+  background: url(../images/text/my-credits.png);
+}
+h2.redeem-auctions {
+  background: url(../images/text/redeem-auctions.png);
+}
+h2.my-wins {
+  background: url(../images/text/my-wins.gif);
+}
+h2.buynow-auctions {
+  background: url(../images/text/buynow-auctions.png);
+}
+h2.watchlist {
+  background: url(../images/text/watchlist.png);
+  margin-bottom: 35px;
+}
+h2.edit-account {
+  background: url(../images/text/edit-account-information.png);
+}
+h2.saved-addresses {
+  background: url(../images/text/saved-addresses.png);
+}
+h2.invitations {
+  background: url(../images/text/invitations.png);
+}
+h2.redeem-coupon-codes {
+  background: url(../images/text/redeem-coupon-codes.png);
+  margin-bottom: 50px;
+}
+h2.new-address {
+  background: url(../images/text/new-address.png);
+}
+h2.your-order-history {
+  background: url(../images/text/your-order-history.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * DASHBOARD FORMS
+ */
+form.dashboard-form .field label {
+  width: 135px;
+}
+form.dashboard-form .actions {
+  margin-left: 145px;
+}
+form.dashboard-form {
+  margin-top: 70px;
+}
+form.dashboard-form .button {
+  background-position: 0px -34px;
+}
+/* EDIT ACCOUNT */
+form#update-account .button {
+  background: url(../images/buttons/submit.png);
+  width: 80px;
+  height: 30px;
+}
+form#update-account .checkbox-agreements {
+  font-size: 0.9em;
+  margin-bottom: 25px;
+}
+form#update-account .checkbox-agreements input {
+  float: left;
+  margin-top: 2px;
+  margin-left: 45px;
+}
+form#update-account .checkbox-agreements p {
+  padding-left: 65px;
+  color: #5C5C5C;
+}
+/* ADDRESS FORM */
+#account-page .address-listing {
+  font-size: 0.9em;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  border-bottom: 1px solid #f0f0f0;
+}
+#account-page .back {
+  width: 103px;
+  height: 23px;
+  background: url(../images/buttons/backarrow.png);
+}
+#account-page p.new-address {
+  margin-bottom: 50px;
+}
+#account-page .add-new-address {
+  width: 153px;
+  height: 23px;
+  background: url(../images/buttons/add-new-address.gif);
+}
+form#new-address .button {
+  background: url(../images/buttons/save-address.gif);
+  width: 130px;
+  height: 34px;
+}
+#new-address .example {
+  font-size: 0.8em;
+}
+#addresses .seperator {
+  margin: 10px 0px 10px;
+  height: 2px;
+  background: #808080;
+  width: 40%;
+}
+
+
+
+
+
+
+/* DASHBOARD AUCTION BUTTONS */
+#redeemable-auctions a.button, #buynow-auctions a.button, #watchlist-auctions .button {
+  width: 90px;
+  height: 35px;
+  background: url(../images/buttons/bid-small.gif);
+}
+
+
+
+
+
+
+/*
+ * DASHBOARD TABLES
+ */
+#account-page table {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+#account-page table td {
+  border-bottom: 1px dotted #c7c7c7;
+  padding: 10px 0;
+}
+#account-page table th {
+  border-bottom: 2px solid #ccc;
+  line-height: 2.0em;
+  font-size: 11px;
+  font-weight: bold;
+}
+#account-page #buy-now-popup table {
+  margin: 0;
+}
+#account-page #buy-now-popup td {
+  border-bottom: 0 none;
+  padding: 0;
+}
+#account-page #buy-now-popup tr.bonuses-used td {
+  border-bottom: 1px solid #C7C7C7
+}
+/* REDEEMABLE AUCTIONS */
+#redeemable-auctions {
+  margin-bottom: 10px;
+}
+#redeemable-auctions th.image, #buynow-auctions th.image {
+  width: 80px;
+}
+#redeemable-auctions th.auction-price, #buynow-auctions th.auction-price {
+  width: 100px;
+}
+#redeemable-auctions th.shipping-price, #buynow-auctions th.shipping-price {
+  width: 90px;
+}
+#redeemable-auctions th.total-price, #buynow-auctions th.total-price {
+  width: 100px;
+}
+#redeemable-auctions th.redeem, #buynow-auctions th.redeem{
+  width: 90px;
+}
+#redeemable-auctions a.button {
+  background-position: 0 -160px;
+}
+#buynow-auctions a.button {
+  background-position: 0 -240px;
+}
+#redeemable-auctions .free, #buynow-auctions .free {
+  font-size: 12px;
+}
+/* WATCHLIST */
+#watchlist-auctions .image {
+  width: 80px;
+}
+#watchlist-auctions .title {
+
+}
+#watchlist-auctions .timer {
+  width: 90px;
+  text-align: center;
+}
+#watchlist-auctions .bidder .auction-last-bidder {
+  padding: 1px 5px;
+}
+#watchlist-auctions .timer .winner-text {
+  display: none;
+  color: #ef7a25;
+}
+#watchlist-auctions .timer .ended-text {
+  display: none;
+}
+#watchlist-auctions .price {
+  width: 70px;
+  text-align: center;
+}
+#watchlist-auctions .price .auction-price {
+  padding: 1px 5px;
+}
+#watchlist-auctions .bidder {
+  width: 120px;
+  text-align: center;
+}
+#watchlist-auctions .bid-button {
+  width: 90px;
+  text-align: center;
+}
+#watchlist-auctions .winner-button {
+  display: none;
+}
+#watchlist-auctions .loser-button {
+  display: none;
+}
+#watchlist-auctions td.price {
+  color: #33BC33;
+}
+#watchlist-auctions td.bidder {
+  font-size: 12px;
+}
+#watchlist-auctions .button {
+  margin: 0 auto;
+}
+#watchlist-auctions .winner-button .button {
+  background-position: 0 -160px;
+}
+#watchlist-auctions .loser-button .button {
+  background-position: 0 -200px;
+}
+#watchlist-auctions .delete {
+  text-align: right;
+  width: 50px;
+}
+#watchlist-auctions td.delete a {
+  font-size: 11px;
+}
+/* ORDER-HISTORY TABLE */
+#order-history-icon-legend {
+  height: 40px;
+  background: url(../images/icons/user-order-history-legend.jpg) no-repeat;
+}
+#account-order-history .date {
+  width: 140px;
+  padding-left: 10px;
+}
+#account-order-history .items {
+
+}
+#account-order-history .price {
+  width: 100px;
+  text-align: center;
+}
+#account-order-history .status {
+  width: 100px;
+  text-align: center;
+}
+#account-order-history td.date {
+  font-size: 1.1em;
+}
+#account-order-history td.date span, #account-order-history td.items span.order-id {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+#account-order-history td.items {
+  padding: 7px 10px 7px 40px;
+}
+#account-order-history td.items span.order-id {
+  font-size: 0.85em;
+}
+#account-order-history td.auction-win {
+  background: url(../images/icons/winner-trophy.png) no-repeat left center;
+}
+#account-order-history td.auction-buy-now {
+  background: url(../images/icons/buynow-trophy.png) no-repeat left center;
+}
+#account-order-history td.membershop-purchase {
+  background: url(../images/icons/discount-piggy.png) no-repeat left center;
+}
+#account-order-history td.bid-pack-purchase {
+  background: url(../images/icons/bids-single.png) no-repeat left center;
+}
+#account-order-history td.status {
+  font-size: 0.9em;
+}
+#account-order-history .order-history-hidden tr.declined, #account-order-history .order-history-hidden tr.void {
+  display: none;
+}
+#account-order-history tr.declined, #account-order-history tr.void {
+  background: #f7f7f7;
+}
+#account-order-history #show-void-declined {
+  font-weight: bold;
+  font-size: 13px;
+  width: 200px;
+  text-align: center;
+  padding: 7px;
+  background: #1c85c1;
+  color: #fff;
+  border-color: #dc45df;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#22aae9), to(#1c85c1));
+  background: -moz-linear-gradient(-90deg, #22aae9, #1c85c1);
+  text-shadow: 0 -1px 0 #23668c;
+  display: inline-block;
+  margin-right: 5px;
+}
+#account-order-history #show-void-declined:hover {
+  cursor: pointer;
+}
+/* ORDER HISTORY LEGEND */
+#order-history-key h3 {
+  font-size: 1.0em;
+  font-weight: bold;
+}
+#order-history-key dl {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  font-size: 0.9em;
+  margin-top: 3px;
+}
+#order-history-key dt {
+  float: left;
+  color: #51b222;
+}
+#order-history-key dt.error {
+  color: #f22E2E;
+}
+#order-history-key dt.hold {
+  color: #EF7A25;
+}
+#order-history-key dd {
+  padding-left: 100px;
+  margin-bottom: 10px;
+}
+/* MY WINS */
+table#auction-monthly-wins {
+  width: auto;
+}
+table#auction-monthly-wins tr {
+  border: 0 none;
+}
+table#auction-monthly-wins td {
+  border: 0 none;
+  padding: 0 15px 15px 0;
+}
+table#auction-monthly-wins p {
+  padding: 10px;
+  width: 70px;
+  height: 65px;
+  background: url(../images/wrapper/my-wins-wrapper.gif);
+}
+table#auction-monthly-wins img {
+  width: 70px;
+  height: 65px;
+}
+
+
+
+
+
+
+/*
+ * DASHBOARD OVERVIEW
+ */
+#account-page .current-page span.credits, #account-page .current-page span.bonuses {
+  font-weight: bold;
+  color: #0088CC;
+}
+#account-page .current-page span.points {
+  font-weight: bold;
+  color: #808080;
+}
+
+
+
+
+
+
+
+
+/*
+ * REDEEM COUPONS PAGE
+ */
+#redeem-coupons-page p {
+  margin-bottom: 35px;
+}
+#redeem-coupons-page form label {
+  width: auto;
+}
+#redeem-coupons-page form input[type="text"] {
+  width: 200px;
+  float: left;
+}
+#redeem-coupons-page form input[type="submit"] {
+  float: left;
+  height: 23px;
+  margin: 4px 5px;
+  width: 138px;
+  background: url(../images/buttons/redeem-coupon.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * INVITES PAGE
+ */
+/* TABS */
+#invites-page #invites-tabs {
+  margin-bottom: 15px;
+}
+#invites-page #invites-tabs ul {
+  height: 27px;
+  line-height: 27px;
+  background: url(../images/wrapper/invites-tabs/bg.png) repeat-x;
+}
+#invites-page #invites-tabs ul li {
+  float: left;
+  font-size: 0;
+  text-indent: -9999px;
+  height: 27px;
+}
+#invites-page #invites-tabs ul li:hover {
+  cursor: pointer;
+}
+#invites-tabs ul li#invite-friends-tab {
+  background: url(../images/wrapper/invites-tabs/invite-friends.png) no-repeat;
+  width: 122px;
+}
+#invites-tabs ul li#your-invites-tab {
+  background: url(../images/wrapper/invites-tabs/your-invites.png) no-repeat;
+  width: 105px;
+  margin-left: 5px;
+}
+#invites-page #invites-tabs ul li.selected {
+  background-position: 0 -27px;
+}
+#invites-page #your-invites {
+  display: none;
+}
+/* TEXT AND FORMS */
+#invites-page .invite-explanation, #invites-page .link-explanation  {
+  height: 25px;
+  font-size: 0;
+  text-indent: -9999px;
+  background: url(../images/text/invite-explanation.gif) no-repeat;
+  margin-bottom: 25px;
+}
+#invites-page form {
+  margin-bottom: 55px;
+}
+#invites-page .link-explanation {
+  background: url(../images/text/invite-link-explanation.gif) no-repeat;
+  margin-bottom: 10px;
+}
+#invite-friends .invitation-link {
+  font-size: 1.1em;
+  text-align: center;
+  font-family: "Cambria", Georgia, "Times New Roman", serif;
+  color: #EF7A25;
+}
+#invites-page form label {
+  width: 160px;
+}
+#invites-page form input[type="text"] {
+  width: 260px;
+}
+#invites-page form .field span {
+  font-size: 0.8em;
+}
+#invites-page form .actions input {
+  margin-left: 170px;
+}
+#invites-page form input[type="submit"] {
+  background: url(../images/buttons/submit.png);
+  height: 30px;
+  width: 80px;
+}
+#your-invites th.made-purchase {
+  width: 130px;
+}
+#your-invites th.bonus-bids {
+  width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * RESEND VERIFICATION
+ */
+.resend-verification-email {
+  padding: 10px 10px 7px 10px;
+  background: #f3ebd7;
+  margin-bottom: 35px;
+  font-size: 0.9em;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.resend-verification-email p {
+  margin-bottom: 3px;
+}
+.resend-verification-email a {
+  font-weight: bold;
+}

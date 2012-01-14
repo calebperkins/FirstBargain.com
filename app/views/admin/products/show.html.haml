@@ -1,0 +1,33 @@
+#product-admin.admin-page
+  %h2= @product.name
+  %p.nav-links.clearfix
+    = link_to 'Back', admin_products_path, :class => "button back"
+    = link_to 'Edit', edit_admin_product_path(@product), :class => "button edit"
+  .block-first
+    %p.admin-hints Summary field is used for SEO. Keep it short, catchy, and descriptive.
+    %table#product-show
+      %tr
+        %td.label Product Summary:
+        %td.value= @product.summary
+      %tr
+        %td.label Price:
+        %td.value= number_to_currency @product.retail_price
+      %tr
+        %td.label Shipping & Handling:
+        %td.value= number_to_currency @product.shipping_price
+      %tr
+        %td.label Sales Tax:
+        %td.value= number_to_currency @product.tax
+      %tr
+        %td.label Cost of Good:
+        %td.value= number_to_currency @product.cost
+      %tr
+        %td.label Description:
+        %td.value= simple_format @product.description
+  .block-middle
+    %h2 Main picture
+    = image_tag @product.main_picture.url(:thumb), size: "70x65"
+  .block-last
+    %h2 Additional pictures
+    - @product.pictures.each do |picture|
+      = image_tag picture.data.url(:thumb), size: "70x65"

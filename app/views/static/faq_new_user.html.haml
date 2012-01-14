@@ -1,0 +1,19 @@
+- content_for :title, "FirstBargain.com - FAQ: Getting Started"
+
+#faq-page-show
+  %h2.getting-started Getting Started
+  .block
+    %h3 How to Participate
+    %p Before you can start bidding on our auctions, you must first register an account and purchase bid credits. Bids costs $0.75 each and can be purchased from our #{ logged_in? ? (link_to "Bids Store", bids_path) : "\"Bids Store\"" }.
+  .block
+    %h3 Verify Email Address
+    %p Upon registration of an account with FirstBargain, you will receive an email asking you to verify your email address. This is to ensure you receive all important notification emails from us. If you have any trouble verifying your email address, please #{ link_to "contact us", contact_path }.
+  .block
+    %h3 Purchase Bid Credits
+    %p Bids $0.75 each and are sold in packs of 30, 50, 100, and 200. Once you purchase a bid pack, you will immediately see bids credited to your account.
+  .block
+    %h3 Read Bidding Tips
+    %p We strongly suggest all new customers to read through our #{ link_to "Bidding Tips", tips_path } page. There you will find helpful hints and strategies to assist you in becoming a successful bidder on FirstBargain!
+  .block
+    %h3 Choose an Auction
+    %p All product for auction on our site are brand new, factory-sealed, and 100% authentic. Now, pick the product you want and start bidding. Happy Bidding!

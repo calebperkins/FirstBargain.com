@@ -1,0 +1,36 @@
+!!! 5
+%html
+  %head
+    = render 'layouts/meta'
+    = include_stylesheets :admin
+    = javascript_include_tag :cdn
+    = include_javascripts :base
+    = javascript_include_tag 'protovis'
+    = csrf_meta_tag
+    %meta(name="ROBOTS" content="NOINDEX, NOFOLLOW")
+    = load_affiliate_stylesheet
+    = render 'layouts/ie'
+  %body#admin
+    #main-wrapper
+      #container
+        #main-menu.clearfix
+          %ul
+            %li= link_to "Auctions", admin_auctions_path
+            %li= link_to "Products", admin_products_path
+            %li= link_to "Orders", admin_orders_path
+            %li= link_to "Accounts", admin_accounts_path
+            %li= link_to "Categories", admin_categories_path
+            %li= link_to "Coupons", admin_coupons_path
+            %li= link_to "Online", online_admin_accounts_path
+            %li= link_to "Analytics", admin_analytics_path
+            %li.last= link_to "Site", root_path
+        #content.padded
+          #admin-current-page
+            #export-as-xml #{link_to "Export as XML", url_for(:format => :xml)} (experimental, doesn't work for every page yet)
+            - if notice
+              %p.notice= notice
+            - elsif alert
+              %p.alert= alert
+            = yield
+      #container-bottom
+    = render 'layouts/msc'

@@ -1,0 +1,41 @@
+!!! 5
+%html
+  %head
+    = render 'layouts/meta'
+    = include_stylesheets :base
+    = javascript_include_tag :cdn
+    = include_javascripts :base
+    = csrf_meta_tag
+    :javascript
+      USER_LOGIN = #{user_login};
+      USER_ID = #{user_id};
+    = load_affiliate_stylesheet 
+    = render 'layouts/ie'
+    = yield :extra_headers
+  %body
+    #xhr-status
+      %p.warning Please check your Internet connection.
+      %p Your computer is taking too long to get auction updates.
+    #bid-status
+    #main-wrapper
+      #container
+        = render 'layouts/header'
+        #content.padded
+          #account-page.sidebar.clearfix
+            #main-menu
+              = tabs_tag :namespace => :sidebar do |t|
+                = t.overview "Overview", account_path, :class => "first"
+                = t.watchlist "Watchlist", bookmarks_path
+                = t.orders "Orders & Account History", orders_path
+                = t.settings "Account Settings", edit_account_path
+                = t.coupons "Redeem Coupon", new_coupon_path
+                = t.invitations "Invitations", invitations_path, :class => "last"
+            .current-page
+              - if notice
+                %p.notice= notice
+              - elsif alert
+                %p.alert= alert
+              = yield
+      #container-bottom
+    = render 'layouts/footer'
+    = render 'layouts/msc'

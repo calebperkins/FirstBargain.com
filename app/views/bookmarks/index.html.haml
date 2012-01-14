@@ -1,0 +1,54 @@
+- content_for :extra_headers do
+  :javascript
+    var SOURCE = "watchlist";
+    poller(#{auction_ids @watchlist}, false, #{auction_prices @watchlist});
+
+%h2.watchlist
+  Watchlist
+- if @watchlist.empty?
+  %p You aren't watching any items.
+- else
+  %table#watchlist-auctions
+    %tr
+      %th.image
+      %th.title
+        Product Name
+      %th.timer
+        Time Left
+      %th.price
+        Price
+      %th.bidder
+        Last Bidder
+      %th.bid-button
+      %th.delete
+    - @watchlist.each do |auction|
+      %tr.auction-listing[auction]
+        %td.image
+          = link_to image_tag(auction.product.main_picture.url(:thumb), size: "70x65"), auction
+        %td.title
+          = link_to auction.product.name, auction
+        %td.timer
+          %span.timer-container
+            %span.auction-timer
+              Loading...
+            %span.winner-text Winner!
+            %span.ended-text Ended!
+        %td.price
+          %span.auction-price
+            = number_to_currency auction.going_price
+        %td.bidder
+          %span.auction-last-bidder
+            = auction.username
+        %td.winner-button
+          = link_to "Checkout", new_order_path(:buyable => auction.id, :kind => :auction), :class => "button"
+        %td.loser-button
+          = link_to "Learn More", auction, :class => "button"    
+        %td.bid-button
+          = form_tag auction_bids_path(auction), :id => auction.id, :remote => true do |f|
+            - if current_user == auction.account
+              = submit_tag "Bid", :class => "button", :disabled => true, :style => "background-position: 0 -120px"
+            - else
+              = submit_tag "Bid", :class => "button"
+        %td.delete
+          = link_to "delete", bookmark_path(auction.id), :method => :delete, :remote => true
+= render 'auctions/auction-overlays'

@@ -1,0 +1,13 @@
+#auction-admin.admin-page
+  %h2 FEATURED: #{ @featured.name }
+  %p.nav-links.clearfix
+    = link_to 'Back', admin_auctions_path, :class => "button back"
+    = link_to "View on Site", @featured.auction, :class => "button", :id => "view-on-site"
+    = link_to 'Edit', edit_admin_featured_auction_path(@featured), :class => "button edit"
+  .block-first
+    %p.auction-details
+      <strong>Auction:</strong>
+      = link_to "#{@featured.auction_id}", @featured.auction
+    %p.auction-details <strong>Name:</strong> #{@featured.name}
+    %p.auction-details <strong>Description:</strong> #{@featured.description}
+    %p.auction-details <strong>Image:</strong> #{@featured.image_url}

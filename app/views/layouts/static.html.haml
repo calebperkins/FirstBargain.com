@@ -1,0 +1,33 @@
+!!! 5
+%html
+  %head
+    = render 'layouts/meta'
+    = csrf_meta_tag
+    = include_stylesheets :base
+    = javascript_include_tag :cdn
+    = include_javascripts :base
+    = load_affiliate_stylesheet
+    = render 'layouts/ie'
+  %body
+    #main-wrapper
+      #container
+        = render 'layouts/header'
+        #content.padded.clearfix-auto
+          #flat-page.sidebar
+            #main-menu
+              = tabs_tag :namespace => :sidebar, :builder => MenuTabBuilder do |t|
+                = t.faq "F.A.Q.", faq_path, :class => "first"
+                = t.rules "Site Rules", rules_path
+                = t.tos "Terms of Service", tos_path
+                = t.returns "Refunds & Returns", returns_path
+                = t.contact "Contact Us", contact_path
+                = t.about "About Us", about_path, :class => "last"
+            .current-page
+              - if notice
+                %p.notice= notice
+              - elsif alert
+                %p.alert= alert
+              = yield
+      #container-bottom
+    = render 'layouts/footer'
+    = render 'layouts/msc'

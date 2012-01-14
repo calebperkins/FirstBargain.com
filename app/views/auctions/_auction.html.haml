@@ -1,0 +1,38 @@
+%td.auction-listing{:class => auction_counter.next.multiple_of?(4) ? "last" : nil}
+  .product-container.clearfix[auction]{:class=> auction_classes(auction)}
+    .title
+      %h3= link_to auction.product.name, auction
+      %p Retail Value: <del>#{number_to_currency auction.retail_price}</del>
+    .image
+      = link_to image_tag(auction.product.main_picture.url(:index), size: "220x204"), auction
+    .bid-increment.hasTooltip{:title => increment_title(auction)}
+    .sold-overlay
+      = link_to auction.product.name, auction
+    .timer-container
+      .auction-timer loading...
+      .winner-text Winner!
+      .ended-text Ended!
+      %span.timer-reset-clock.hasTooltip{:title => timer_title(auction)}
+    .price-container
+      %span.auction-price= number_to_currency auction.going_price
+    .last-bidder-container
+      %span.auction-last-bidder= bidder auction.username(@winners)
+    .buttons
+      .main
+        .bid-button
+          - if logged_in?
+            = form_tag auction_bids_path(auction), :id => auction.id, :remote => true do
+              - if current_user.id == auction.account_id
+                = submit_tag "Bid", :class => "button", :disabled => true, :style => "background-position: 0 -120px"
+              - else
+                = submit_tag "Bid", :class => "button"
+          - elsif controller_name == "landings"
+            %a(href="#form-landing" class="registration button")
+          - else
+            = link_to "Login", new_session_path, :class => "login button"
+        .winner-button= link_to "Checkout", new_order_path(:buyable => auction.id, :kind => :auction), :class => "button"
+        .loser-button= link_to "Learn More", auction_path(auction, :auction_registration => true), :class => "button"
+    - if auction.beginner?
+      .auction-type-title-area.hasTooltip{:title => "Newcomers should try a beginner auction and learn how to bid against other newbies. <br>Same bargains, less competition!"}
+- if auction_counter.next.multiple_of?(4)
+  </tr><tr>

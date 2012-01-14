@@ -1,0 +1,68 @@
+#product-form
+  .right= image_tag(@product.main_picture.url, size: "280x260") if @product.main_picture?
+  = form_for([:admin, @product], :html => { :multipart => true }) do |f|
+    - if @product.errors.any?
+      #errorExplanation
+        %p The following errors occurred:
+        %ul
+          - @product.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :widget_worthy
+      = f.check_box :widget_worthy
+    .field
+      = f.label :category
+      = f.collection_select :category_id, Category.order('name ASC'), :id, :name
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :summary
+      = f.text_field :summary
+    .field
+      = f.label :retail_price
+      = f.text_field :retail_price, :class => "short"
+    .field
+      = f.label :max_discount
+      = f.text_field :max_discount, :class => "short"
+    .field
+      = f.label :shipping_price
+      = f.text_field :shipping_price, :class => "short"
+    .field
+      = f.label :tax
+      = f.text_field :tax, :class => "short"
+    .field
+      = f.label :cost
+      = f.text_field :cost, :class => "short"
+    .field
+      = f.label :visible, "In Store"
+      = f.check_box :visible
+    .field
+      = f.label :discontinued
+      = f.check_box :discontinued
+    .field
+      = f.label :bonuses, "Bonus Bids"
+      = f.text_field :bonuses, :class => "short"
+    .field
+      = f.label :requires_shipping, "Requires shipping?"
+      = f.check_box :requires_shipping
+    .field(style="margin-bottom:25px;")
+      = f.label :description
+      = f.text_area :description
+    %h2 Upload New Product Images:
+    .field
+      = f.label :main_picture
+      = f.file_field :main_picture
+      = f.hidden_field :main_picture_cache
+      %span &laquo; Recommended: 280px by 320px
+    = f.fields_for :pictures do |p|
+      .field.clearfix.secondary
+        %p.picture
+          = p.label :data, "other images"
+          = p.file_field :data
+          = p.hidden_field :data_cache
+        %p.summary
+          = p.label :summary
+          = p.text_field :summary, :class => "wide"
+    .actions#add-item
+      = f.submit "Add Item", :class => "button"

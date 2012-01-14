@@ -1,0 +1,43 @@
+!!! 5
+%html
+  %head
+    = stylesheet_link_tag 'viewer'
+    = javascript_include_tag 'jquery', 'viewer'
+    /[if IE 8]
+      :css
+        #container {
+          display: table;
+        }
+    /[if IE 7]
+      :css
+        body {
+          font-weight: normal;
+          font-size: 11px;
+        }
+  %body
+    #container.clearfix
+      %h1
+        = link_to image_tag("header/logo.gif"), root_path
+      #content-wrapper
+        #content
+          #home-page
+            %h2 Innovative Auctions. Coveted Products. Member Rewards.
+            %p FirstBargain.com is a fun and exciting auction website dedicated to bargain seekers. At FirstBargain you can win Playstations, iPads, gift cards, and all sorts of other popular products for incredibly low prices.
+            %p= link_to ("&raquo; Click Here to Check Out Our Main Site &laquo;").html_safe, "http://www.firstbargain.com"
+            #signin
+              = form_for @a, :url => splash_path(:secure => false) do |f|
+                #errorExplanation            
+                  - if @a.errors.any?
+                    %p Sorry, a problem occurred while logging you in:
+                    %ul
+                      - @a.errors.full_messages.each do |msg|
+                        %li= msg
+                .authorized Authorized Users - Sign In:         
+                .field.clearfix
+                  = f.label :login, "Username"
+                  = f.text_field :login
+                .field.clearfix
+                  = f.label :password
+                  = f.password_field :password
+                .actions
+                  = f.submit "Login", :class => "button"

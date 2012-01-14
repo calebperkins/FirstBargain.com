@@ -1,0 +1,23 @@
+- content_for :title, "FirstBargain.com - FAQ: Auctions & Bidding"
+
+#faq-page-show
+  %h2 Auctions & Bidding
+  .block
+    %h3 FirstBargain Auctions Explained
+    %p All auctions start with an initial price of $0. Each bid raises the auction price by a fixed increment (1c, 5c, or 15c depending on the auction). Each time you place a bid, one bid credit is deducted from your account. Also, up to 30 seconds is added to the auction timer each time someone bids. This is similar to the “Going once…Going twice…SOLD” approach of traditional auctions, which gives other bidders a chance to make a higher bid if they wish. You win the auction if you are the highest bidder when the timer reaches zero.
+  .block
+    %h3 Winning an Auction
+    %p When you win an auction, your bid button will turn into a blue "Redeem" button. Click the button and simply follow the checkout instructions. If you choose not to redeem right away, you may still do so within 7 days of the auction closing date by going to the #{ logged_in? ? (link_to "My Account", account_path) : "\"My Account\"" } page.
+  .block
+    %h3 What Happens if I Don't Win?
+    %p If you do not win, the bids you have placed on the auction will not be returned to your account; however, we offer the “Buy Now” feature on most auctions! This feature allows you to use the bids you spent on an auction to buy the same item at a discounted price. See example below:
+    %p Say you placed 40 bids (or $30 worth) on a $50 item, but another bidder wins the auction. Through “Buy Now” you are given the opportunity to purchase the product for its retail value of $50 minus the $30 you spent in bids. Thus, in this example you would be able to buy the item for just $20.
+  .block
+    %h3 What are Beginner Auctions?
+    %p They are auctions reserved only for customers who have not yet won an auction. You will see them marked with an orange border (only visible to users with no wins).
+  .block
+    %h3 What is the Bid Assistant?
+    %a(name="5")
+    %p The Bid Assistant is an automated bidding tool that allows you to place bids on auctions even when you are away from the computer. Simply activate it with the click of a button and the Bid Assistant will place bids according to your instructions.
+    %p You can find the Bid Assistant interface located below the Bid History box for each auction. Input the "Start at" price and the "# of Bids" you want to authorize for use. Now, click the "Activate" button and the Bid Assistant will immediately get to work for you!
+    %p The Bid Assistant places bids on your behalf when the remaining time on the auction clock is between 0 and 20 seconds. You can set a minimum of 3 bids and a maximum of 50 bids. You may deactivate the Bid Assistant at any time.

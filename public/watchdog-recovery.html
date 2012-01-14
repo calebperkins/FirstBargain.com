@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FirstBargain technical difficulties. System recovering...</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <style>
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, 
+      a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp,
+      sub, sup, tt, var, dd, dl, dt, li, ol, ul, form, fieldset, input, textarea, label, 
+      table, legend, caption, tbody, tfoot, thead, tr, th, td { 
+        font-family: inherit;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        color: #808080;
+        font-family: Helvetica, Helvetica Neue, Arial, sans-serif;
+        font-size: 13px;
+      }
+      #wrapper {
+        margin: 85px auto;
+        width: 500px;
+        border-left: 5px solid #ffe4d0;
+        padding: 20px;
+      }
+      #logo {
+        margin-bottom: 75px;
+      }
+      h1 {
+        font-size: 1.5em;
+        margin-bottom: 35px;
+        color: #EF7A25;
+      }
+      img {
+        border: 0 none;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      p strong {
+        font-size: 1.2em;
+      }
+      a {
+        color: #EF7A25;
+        text-decoration: none;
+        outline: 0 none;
+      }
+      a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      #signature {
+        padding-top: 20px;
+      }
+      #signature em {
+        font-size: 1.1em;
+      }
+  </style>
+  <script>
+    var n = 30;
+    setInterval(function () {
+      if (n > 0) {
+        n--;
+        $("#recovery-timer").text(n);
+      } else {
+        window.location = "http://www.firstbargain.com/";
+      };
+    }, 1000);
+  </script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="logo">
+      <a href="//www.firstbargain.com"><img src="//firstbargain.com/images/header/logo.gif"></a>
+    </div>
+    <h1>We are experiencing technical difficulties.</h1>
+    <p>Auctions scheduled to end within the past minute have been restarted with 10 minutes added to their timers.</p>
+    <p><strong>Automatic system recovery ready in: <span id="recovery-timer">30</span> seconds.</strong></p>
+    <p>You will be redirected once recovery is ready.</p>
+  </div>
+</body>
+</html>

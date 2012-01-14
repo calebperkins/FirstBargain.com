@@ -1,0 +1,58 @@
+- content_for :title, "FirstBargain.com - How It Works"
+
+#how-to-play-page
+  .unit#how-to-overview.clearfix
+    %ul
+      %li Buy bid credits to participate (you use 1 bid credit each time you bid)
+      %li All auctions start at $0
+      %li Each bid raises the price by a few cents & adds up to 30 seconds to the clock
+    %ul
+      %li Last bidder standing when timer expires, wins!
+      %li Winner pays final auction price and saves up to 90% off retail
+    %ul.last
+      %li If you're outbid, apply the value of your used bids toward a discount on the same item at its retail value
+      %li Redeem your MemberPoints for discounts on popular items in the #{ link_to "Members Shop", products_path }.
+  .unit#get-started-now.clearfix
+    - unless current_user
+      .right= link_to "Register for Free", new_account_path, :id => "signup-for-free", :class => "button"
+      #sign-up
+        %h3 Registration is <strong>FREE</strong> and EASY!
+    - else
+      .right= link_to "Register for Free", bids_path, :id => "buy-bid-credits", :class => "button"
+      #buy-bids
+        %h3 Buy bid credits to get started.
+        %p You need them to participate. They cost $0.75 each.
+  %h2.faq Frequently Asked Questions
+  .unit
+    %h3 How do I get started?
+    %ol
+      - unless logged_in?
+        %li #{ link_to "Sign up", new_account_path } to become a member. Registration is free and easy.
+        %li Buy bid credits. They cost only $0.75 each and are sold in packages of varying size.
+      - else
+        %li #{ link_to "Buy bid credits", bids_path }. They cost only $0.75 each and are sold in packages of varying size.
+      %li Pick an auction and start bidding! We offer products ranging from gift cards to high-end designer handbags.
+  .unit
+    %h3 How do auctions work?
+    %p All auctions start at $0 and depending on the auction, each bid raises the price by 1&#162;, 5&#162;, or 15&#162;. If the remaining time on the auction clock is under 30 seconds (or 20 seconds depending on the auction), each bid will reset the timer back to 30 seconds (or 20 seconds) to give everyone an equal chance to participate. This timer reset amount is clearly displayed on each auction. There is no limit for how many bids you can place on an item. So if someone outbids you while the auction is still live, you can bid again to reclaim the highest bidder spot. You win the auction if you are the last bidder standing when the timer expires.
+  .unit
+    %h3 What do I pay?
+    %p To participate in our auctions, you need bid credits. They cost $0.75 each.<br/>When you win something, you pay the final auction price plus shipping and handling. <br>If you bid on an auction but don’t win, you can “Buy Now” the same item for the retail value minus the cost of bids you used in the auction.<br>Please note: <strong>spent bids are not refundable & the minimum charge on any transaction is $2.95</strong>. See our #{ link_to "Member Rewards", rewards_path } page to learn more.
+  .unit
+    %h3 How many times can I win?
+    %p At First Bargain, you can win up to #{Rails.configuration.monthly_win_limit} times a month, #{Rails.configuration.daily_win_limit} times a day. You may win 1 auction of the same product with a retail value of over $200 per calendar month (e.g. you can only win a certain Xbox once every calendar month). This gives everyone a fair chance to win great deals.
+  .unit
+    %h3 How do I get discounts in the Members Shop?
+    %p For every $1 in bid credits you purchase from us, we credit your account with 1 MemberPoint. You can redeem these points to get discounts on gift cards and other popular items we offer in the #{ link_to "Members Shop", products_path }. 
+  .unit
+    %h3 Are all products new?
+    %p Absolutely! We get our products directly from manufacturers and authorized distributors. We guarantee that every item offered on our site is brand new, factory-sealed, and 100% authentic.
+  .unit
+    %h3 How long does shipping take?
+    %p Most items will arrive within 14 days after making payment. You can track the status of your item in the #{current_user ? link_to("My Account", orders_path) : "My Account"} page. If you have not received your item after 14 days, please notify us right away so we can ensure that your order is on the way.
+  .unit
+    %h3 Where does First Bargain ship?
+    %p We currently ship to all states in the U.S. except for Alaska and Hawaii.
+  .unit 
+    %h3 What’s the return policy?
+    %p Items can be returned within 14 days for a refund unless otherwise noted. The item must be in its original condition and packaging to qualify for a full refund, exclusive of bids used. We will also refund you for any unused bid credits. For detailed information, see our #{ link_to "Refunds & Returns", returns_path } page.

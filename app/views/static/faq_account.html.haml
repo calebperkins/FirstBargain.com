@@ -1,0 +1,22 @@
+- content_for :title, "FirstBargain.com - FAQ: My Account"
+
+#faq-page-show
+  %h2 My Account
+  .block  
+    %h3 Accessing the "My Account" Page
+    %p You can find the link to your #{ logged_in? ? (link_to "My Account", account_path) : "\"My Account\"" } page on the top-right corner of your browser next to the "Sign In/Logout" button.
+  .block
+    %h3 Change Username or Password
+    %p To change your username or password, first go to the #{ logged_in? ? (link_to "My Account", account_path) : "\"My Account\"" } page. Then, choose the #{ logged_in? ? (link_to "Account Settings", edit_account_path) : "\"Account Settings\"" } tab on the left side. Enter your new username or password in the appropriate fields and click Submit.
+  .block
+    %h3 Forgot Password?
+    %p Click on the "Signin" button on the top-right corner of your browser. On the bottom of the login box that appears you will see a #{ logged_in? ? "\"click here\"" : (link_to "click here", new_password_reset_path)} link next to the words Forgot your Password? Clicking on the link will take you to a page requesting your email address. Once you click the "Reset Password" button, an email will be sent to you with instructions on resetting your password.
+  .block
+    %h3 Change Email Address
+    %p To update your email address, first go to the #{ logged_in? ? (link_to "My Account", account_path) : "\"My Account\"" } page. Then, choose the #{ logged_in? ? (link_to "Account Settings", edit_account_path) : "\"Account Settings\"" } tab on the left side. Enter your new e-mail address in the appropriate field and click Submit.
+  .block
+    %h3 Refer Friends
+    %p Inviting your friends is quick and easy. Just go to the #{ logged_in? ? (link_to "My Account", account_path) : "\"My Account\"" } page and choose the #{ logged_in? ? (link_to "Invitation", invitations_path) : "\"Invitation\"" } tab on the left side. Enter Your Name and the Recipient's email address and click Submit. If you want to invite multiple friends at once, make sure to separate email addresses using commas.
+  .block
+    %h3 Redeem Coupons
+    %p To redeem a coupon code, first go to the #{ logged_in? ? (link_to "My Account", account_path) : "\"My Account\"" } page. Then, choose the #{ logged_in? ? (link_to "Redeem Coupon", new_coupon_path) : "\"Redeem Coupon\"" } tab on the left side.

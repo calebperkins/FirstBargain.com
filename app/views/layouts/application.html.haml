@@ -1,0 +1,52 @@
+!!! 5
+%html
+  %head
+    = render 'layouts/meta'
+    = render 'layouts/og'
+    = include_stylesheets :base
+    = javascript_include_tag :cdn
+    = include_javascripts :base
+    = csrf_meta_tag
+    :javascript
+      var USER_LOGIN = #{user_login};
+      var USER_ID = #{user_id};
+    = yield :extra_headers
+    = load_affiliate_stylesheet
+    = render 'layouts/ie'
+  %body
+    #xhr-status
+      %p.warning Please check your Internet connection.
+      %p Your computer is taking too long to get auction updates.
+    #bid-status
+    - if logged_in?
+      #user-credits-main
+        %ul
+          %li
+            %div
+              %span.latency.conn-good.hasTooltip{:title=>"Your internet connection is good"}
+          %li
+            %div
+              %span.label Bid Credits: 
+              %strong.credits-count= current_user.credits
+              = image_tag "labels/bid-credits.png"
+          %li 
+            %div
+              %span.label Bonus Bids:
+              %strong.bonuses-count= current_user.bonuses
+              = image_tag "labels/bonus-credits.png"
+          %li.last
+            %div
+              %span.buy-bids= link_to "Buy Bids", bids_path, :class => "button"
+    #main-wrapper
+      #container
+        = render 'layouts/header'
+        #content.padded
+          - if notice
+            %p.notice= notice
+          - elsif alert
+            %p.alert= alert
+          = yield
+      #container-bottom
+    = render 'layouts/footer'
+    = render 'layouts/msc'
+    

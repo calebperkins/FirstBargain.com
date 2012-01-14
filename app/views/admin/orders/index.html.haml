@@ -1,0 +1,23 @@
+#orders-admin.admin-page
+  = form_tag admin_orders_path, :method => :get do
+    = select_tag :type, options_for_select(Order::STATES, params[:type])
+    = text_field_tag :s, params[:s]
+    = submit_tag "Filter", :name => nil, :class => "blue-button"
+  %h2(style="margin-top:55px;") #{params[:type].try :humanize} Orders
+  %table
+    %tr
+      %th.id ID
+      %th.username Username
+      %th.contents Contents
+      %th.price Price
+      %th.create-date Order Date
+      %th.ship-date Shipped Date
+    - @orders.each do |o|
+      %tr
+        %td= link_to o.id, admin_order_path(o)
+        %td= link_to o.account.username, admin_account_path(o.account)
+        %td.content=link_to o.contents, admin_order_path(o)
+        %td= number_to_currency o.total_price
+        %td= o.created_at.to_s :default
+        %td= o.shipped_at? ? o.shipped_at.to_s(:default) : "---"
+  = will_paginate @orders

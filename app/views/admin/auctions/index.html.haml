@@ -1,0 +1,34 @@
+#auction-admin.admin-page
+  .block-first
+    %h2 Active Auctions
+    %p#add-new-item(style="margin-bottom:15px;")= link_to 'New auction', new_admin_auction_path, :class => "button"
+    %table
+      %tr
+        %th.name Product
+        %th.time Ending at
+        %th.price Price
+        %th.edit
+      = render @active
+    = will_paginate @active, :param_name => 'active'
+  .block-middle
+    %h2 Current Featured Auction
+    - if @featured
+      %table
+        %tr
+          %th.name Name
+          %th.time Ending at
+          %th.price Auction ID
+          %th.edit
+        = render @featured
+    - else
+      %p Nothing featured.  
+  .block-last
+    %h2 Ended Auctions
+    %table
+      %tr
+        %th.name Product
+        %th.time Ending at
+        %th.price Price
+        %th.edit
+      = render @finished
+    = will_paginate @finished, :param_name => 'finished' 

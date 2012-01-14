@@ -1,0 +1,39 @@
+%table{:width =>"100%", :border=>"0", :cellpadding=>"0", :cellspacing=>"0"}
+  %tbody
+    %tr
+      %td{:align=>"center", :bgcolor=>"#ffa524", :style=>"padding-top:30px; padding-bottom:20px;"}
+        / TOP WRAPPER
+        %table{:border=>"0", :cellpadding=>"0", :cellspacing=>"0", :width=>"670px", :height=>"5px"}
+          %tr
+            %td{:width=>"670px", :height=>"5px"}=image_tag 'http://www.firstbargain.com/images/email/v030311/top-wrap.png', :width=>"670px", :height=>"5px", :style=>"display:block;", :alt=>"FirstBargain.com Top Wrapper"
+        / WRAPPER CONTAINER
+        %table{:width => "670px", :border=>"0", :cellpadding=>"0", :cellspacing => "0"}
+          %tr
+            %td{:width=>"20px", :bgcolor=>"#FFFFFF"}
+            %td{:width=>"630px", :bgcolor=>"#FFFFFF", :align=>"center"}
+              / HEADER
+              %table{:width=>"630px", :height=>"60px", :border=>"0", :cellpadding=>"0", :cellspacing=>"0"}
+                %tr
+                  %td{:width=>"195px", :height=>"60px"}=image_tag 'http://www.firstbargain.com/images/email/v030311/logo.gif', :width=>"195px", :height=>"60px", :style=>"display:block;", :alt=>"FirstBargain.com Logo"
+                  %td{:width=>"475px", :height=>"60px"}
+              / BODY
+              %table{:width=>"630px", :border=>"0", :cellpadding=>"0", :cellspacing=>"0"}
+                %tr
+                  %td{:width=>"630px", :style=>"padding-top:20px; padding-bottom:40px; text-align:left;"}
+                    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"}
+                      = simple_format @message
+              / NAVIGATION
+              %table{:width=>"630px", :height=>"35px", :border=>"0", :cellpadding=>"0", :cellspacing=>"0", :background=>"http://www.firstbargain.com/images/email/v030311/nav-bar.png"}
+                %tr
+                  %td{:width=>"630px", :height=>"35px", :align=>"center", :style=>"text-align:center;"}
+                    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#FFFFFF; font-size:15px;"}
+                      #{link_to "Home", auctions_url, :style=>"font-family:Helvetica,Arial,sans-serif; color:#FFFFFF; font-size:15px; text-decoration:none; padding-left:12px; padding-right:12px;"} |
+                      #{link_to "Members Shop", products_url, :style=>"font-family:Helvetica,Arial,sans-serif; color:#FFFFFF; font-size:15px; text-decoration:none; padding-left:12px; padding-right:12px;"} |
+                      #{link_to "My Account", account_url, :style=>"font-family:Helvetica,Arial,sans-serif; color:#FFFFFF; font-size:15px; text-decoration:none; padding-left:12px; padding-right:12px;"} |
+                      #{link_to "How It Works", tutorial_url, :style=>"font-family:Helvetica,Arial,sans-serif; color:#FFFFFF; font-size:15px; text-decoration:none; padding-left:12px; padding-right:12px;"} |
+                      #{link_to "Help", faq_url, :style=>"font-family:Helvetica,Arial,sans-serif; color:#FFFFFF; font-size:15px; text-decoration:none; padding-left:12px; padding-right:12px;"}
+            %td{:width=>"20px", :bgcolor=>"#FFFFFF"}
+        / BOTTOM WRAPPER
+        %table{:border=>"0", :cellpadding=>"0", :cellspacing=>"0", :width=>"670px", :height=>"20px"}
+          %tr
+            %td{:width=>"670px", :height=>"20px"}=image_tag 'http://www.firstbargain.com/images/email/v030311/bot-wrap.png', :width=>"670px", :height=>"20px", :style=>"display:block;", :alt=>"FirstBargain.com Bottom Wrapper"

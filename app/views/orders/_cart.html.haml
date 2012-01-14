@@ -1,0 +1,25 @@
+#shopping-cart-numbers
+  %table
+    %tr.product
+      %td(colspan="2")
+        <strong>#{@order.contents}</strong>
+    %tr.image
+      %td(colspan="2")
+        %p= order_picture @order
+    %tr.subtotal
+      %td.label Subtotal:
+      %td.value= number_to_currency @order.subtotal
+    %tr.tax
+      %td.label Sales Tax:
+      %td.value= number_to_currency @order.sales_tax
+    %tr.shipping-handling
+      %td.label Shipping & Handling:
+      %td.value= number_to_currency @order.shipping_price
+    %tr.member-discount
+      %td.label MemberPoints:
+      %td.value -#{ @order.point_discount}
+    %tr.total
+      %td.label.total Grand Total:
+      %td.value.total= number_to_currency @order.total_price
+  %p ** MemberPoints only apply to items purchased from the Members Shop
+  %p ** For purchases under $2.95, we charge a minimum of $2.95.

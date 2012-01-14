@@ -1,0 +1,23 @@
+#register-page #account_terms_of_service {
+  margin: 0;
+  padding: 0;
+}
+#register-page .field label[htmlFor="account_terms_of_service"] {
+  width: 380px;
+}
+form .field label[htmlFor="account_session_remember_me"], form .field label[htmlFor="account_terms_of_service"], form .field label[htmlFor="shipping-address-toggle-node"] {
+  float: none;
+  width: auto;
+  line-height: 1.0em;
+  text-align: left;
+  text-transform: none;
+  margin: 0;
+}
+select {
+  padding: 0.6em;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid #CDCED0;
+  color: #808080;
+}
+

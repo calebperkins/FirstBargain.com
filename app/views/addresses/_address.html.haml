@@ -1,0 +1,8 @@
+.address-listing
+  %address
+    %p <strong>#{address.label}</strong>
+    %p= address.name
+    %p= address.address
+    %p= address.address_2 if address.address_2
+    %p #{address.city}, #{address.state} #{address.zip}
+  %p= link_to "remove", address, :method => :delete

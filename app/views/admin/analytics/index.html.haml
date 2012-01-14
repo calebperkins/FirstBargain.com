@@ -1,0 +1,81 @@
+#analytics-admin.admin-page
+  = form_tag admin_analytics_path, :method => :get do
+    = select_tag :datatype, options_for_select([['Revenue from Users',:revenue],['Purchase Conversion Rate',:pcrate]], params[:datatype])
+    = select_tag :source, options_for_select(['All Sources']+(@sources.to_a), params[:source])
+    = select_tag :medium, options_for_select(['All Mediums']+@mediums.to_a, params[:medium])
+    = select_tag :campaign, options_for_select(['All Campaigns']+@campaigns.to_a, params[:campaign])
+    = select_tag :term, options_for_select(['All Terms']+@terms.to_a, params[:term])
+    = select_tag :content, options_for_select(['All Content']+@contents.to_a, params[:content])
+    = submit_tag "Filter", :name => nil, :class => "blue-button"
+    %br
+    %br
+    :javascript
+      $(function() {
+        $("#start").datepicker();
+        $("#end").datepicker();
+      });
+    = label_tag 'From:'
+    = text_field_tag :start, nil, :placeholder => 'mm/dd/yyyy', :maxlength => 10, :value => (params[:start] ? params[:start] : nil)
+    = label_tag 'To:'
+    = text_field_tag :end, nil, :placeholder => 'mm/dd/yyyy', :maxlength => 10, :value => (params[:end] ? params[:end] : nil)
+  %h2(style="margin-top:55px;")
+    = "Analytics - #{(params[:datatype] == 'pcrate' ? "Purchase Conversion Rate" : "Revenue from Users")}"
+  - unless @graph_data[0].empty?
+    #analytics_graph
+      %script{:type => "text/javascript+protovis"}
+        - if params[:datatype] == 'pcrate'
+          - d = (@graph_data[3].keys.sort.inject("") {|a,v| a += "{x: new Date(\"#{v.strftime('%B %d, %Y')}\"), y: #{@graph_data[3][v]}},"})[0..-2]
+          - h_interval = 10
+          - h = 100
+        - else
+          - d = (@graph_data[0].keys.sort.inject("") {|a,v| a += "{x: new Date(\"#{v.strftime('%B %d, %Y')}\"), y: #{@graph_data[0][v]/100.0}},"})[0..-2]
+          - h_interval = (@graph_data[0].values.max > 0) ? (10 ** (Math.log10(@graph_data[0].values.max).floor - 2)) : 10
+          - h = ((@graph_data[0].values.max / 100 / h_interval).to_i + 1) * h_interval
+        :plain
+          var data = [#{d}];
+          var w = 600,
+              h = 300,
+              x = pv.Scale.linear(data, function(d) d.x).range(0,w),
+              y = pv.Scale.linear(0,#{h}).range(0,h);
+            
+          var vis = new pv.Panel()
+            .width(w)
+            .height(h)
+            .bottom(20)
+            .left(40)
+            .right(20)
+            .top(5)
+      
+          vis.add(pv.Rule)
+            .data(x.ticks())
+            .left(x)
+            .strokeStyle("#eee")
+            .anchor("bottom").add(pv.Label)
+            .text(x.tickFormat);
+        
+          vis.add(pv.Rule)
+            .data(y.ticks(5))
+            .bottom(y)
+            .strokeStyle(function(d) d ? "#eee" : "#000")
+            .anchor("left").add(pv.Label)
+            .text(y.tickFormat);
+          
+          vis.add(pv.Line)
+            .data(data)
+            .left(function(d) x(d.x))
+            .bottom(function(d) y(d.y))
+            .lineWidth(3);
+          
+          vis.render();
+  %table(style="margin-top: 20px;")
+    %tr
+      %th.id Time Interval
+      %th.revenue Revenue
+      %th User Registrations
+      %th Unique Buyers
+    - @graph_data[0].keys.sort.each do |k|
+      %tr
+        %td= k.strftime("%m/%d/%Y")
+        %td= number_to_currency(@graph_data[0][k]/100.0)
+        %td= @graph_data[2][k]
+        %td= @graph_data[1][k]

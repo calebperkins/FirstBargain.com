@@ -1,0 +1,50 @@
+- content_for :subject, "Order Help"
+
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"}
+      - if @order.is_a? BidOrder
+        Thank you for purchasing a bid pack. The appropriate amount of Bid Credits and MemberPoints have
+        been credited to your account, and they are available for your immediate use.
+      - elsif @order.bid_pack? and @order.requires_shipping?
+        Thank you for your payment. Your bids are ready for immediate use, and you will receive a shipping confirmation email shortly
+      - elsif @order.bid_pack?
+        Thank you for your payment. The appropriate number of Bonus Bids have been credited to your
+        account, and they are available for your immediate use.
+      - else
+        Thank you for your payment. Your order has been placed with our supplier, and you will receive a
+        shipping confirmation email shortly.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+      %tr{:valign => "top"}
+        %td{:width=>"80px", :style => "padding-left:100px; padding-right:0; padding-top:0; padding-bottom:5px; text-align:left;"}
+          %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px;"} Product:
+        %td{:width=>"440px", :style => "padding-left:10px; padding-right:0; padding-top:0; padding-bottom:5px; text-align:left;"}
+          %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px;"}= @order.contents
+      %tr{:valign=>"top"}
+        %td{:width=>"80px", :style => "padding-left:100px; padding-right:0; padding-top:0; padding-bottom:5px; text-align:left;"}
+          %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px;"} Price:
+        %td{:width=>"440px", :style => "padding-left:10px; padding-right:0; padding-top:0; padding-bottom:5px; text-align:left;"}
+          %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px;"}= number_to_currency @order.total_price
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} This order was billed to the following address:
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+      %tr
+        %td{:width=>"400px", :style=>"padding-left:100px; padding-right:0; padding-top:0; padding-bottom:5px; text-align:left;"}
+          %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px;"}= @order.billing_name
+      %tr
+        %td{:width=>"400px", :style=>"padding-left:100px; padding-right:0; padding-top:0; padding-bottom:5px; text-align:left;"}
+          - if @order.paypal?
+            %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; font-style:italic;"} paid via PayPal
+          - else
+            %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px;"}
+              = @order.billing_address
+              %br
+              - if @order.billing_address_2?
+                = @order.billing_address_2
+                %br
+              #{@order.billing_city}, #{@order.billing_state} #{@order.billing_zip}

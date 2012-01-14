@@ -1,0 +1,17 @@
+/ FACEBOOK OPENGRAPH
+<meta property="og:site_name" content="FirstBargain.com">
+<meta property="fb:app_id" content="156859277698831">
+- if @auction
+  - unless request.ssl?
+    = javascript_include_tag "http://static.ak.fbcdn.net/connect.php/js/FB.Share"
+  <meta property="og:title" content="">
+  %meta{:property =>"og:description", :content => "This brand new #{@auction.product.name} is going for #{number_to_currency @auction.going_price} on FirstBargain.com!"}
+  %meta{:property => "og:url", :content => auction_url(@auction)}
+  %meta{:property => "og:image", :content => picture_url(@auction)}
+  <meta property="og:type" content="product">
+- else
+  <meta property="og:title" content="FirstBargain.com - Your first stop to bargain shopping. Save up to 90%!">
+  <meta property="og:description" content="FirstBargain.com is an exciting new way to shop, where users compete for absurd discounts on some of today's most coveted brands.">
+  %meta{:property => "og:url", :content => request.url}
+  <meta property="og:image" content="http://firstbargain.com/images/header/logo.gif">
+  <meta property="og:type" content="company">

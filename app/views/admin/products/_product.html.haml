@@ -1,0 +1,9 @@
+%tr[product]{class: product.discontinued? ? "discontinued" : nil}
+  %td= product.id
+  %td.name= link_to product.name, [:admin, product]
+  %td= number_to_currency product.shipping_price
+  %td= number_to_currency product.cost
+  %td= product.bonuses
+  %td= (product.visible ? "Yes" : "No")
+  %td= number_to_currency product.retail_price
+  %td= link_to 'Edit', edit_admin_product_path(product)

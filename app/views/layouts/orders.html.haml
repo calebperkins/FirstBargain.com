@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    = render 'layouts/meta'
+    = csrf_meta_tag
+    = include_stylesheets :base
+    = javascript_include_tag :cdn
+    = include_javascripts :base
+    = load_affiliate_stylesheet
+    = render 'layouts/ie'
+  %body
+    #main-wrapper
+      #container
+        = render 'layouts/header'
+        #content.padded
+          - if notice
+            %p.notice= notice
+          - if alert
+            %p.alert= alert
+          = yield
+      #container-bottom
+    = render 'layouts/footer'
+    = render 'layouts/msc'

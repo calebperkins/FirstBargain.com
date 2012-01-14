@@ -1,0 +1,136 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  authlogic:
+    error_messages:
+      login_invalid: "should use only letters and numbers please."
+  date:
+    order:
+      - :month
+      - :day
+      - :year
+  activemodel:
+    errors:
+      models:
+        invitation:
+          attributes:
+            emails:
+              invalid: "are not valid"
+              length: "may be entered up to five at a time"
+  activerecord:
+    models:
+      bid_bot: "Bid Assistant"
+    errors:
+      models:
+        bid_bot:
+          attributes:
+            base:
+              active_bot_limit: "You may only activate one bid assistant at a time."
+            bids_left:
+              not_in_range: "must be between 3 and 50."
+              need_more_bids: "is incorrect. You don't have enough Bid Credits left in your account."
+            bid_from:
+              greater_than_or_equal_to: "price must be greater than or equal to 0."
+        account:
+          attributes:
+            base:
+              ip_taken: "Your IP seems to be registered with another account. We only permit one account per household."
+            email:
+              invalid: "domain is banned."
+            birth_date:
+              invalid: "must be greater than 18 years ago"
+            username:
+              limited: "can only be changed once a month."
+        auction:
+          attributes:
+            ending_at:
+              past: "must be in the future"
+        coupon_use:
+          attributes:
+            coupon_id:
+              taken: "has already been used by you"
+              blank: "is invalid"
+        auction_order:
+          attributes:
+            base:
+              did_not_win: "You did not win this auction."
+              already_redeemed: "This auction was already redeemed."
+              expired: "Sorry, auctions over 7 days old cannot be redeemed."
+        reward_order:
+          attributes:
+            point_discount:
+              invalid: "is not correct"
+        buy_now_order:
+          attributes:
+            auction:
+              invalid: "is not eligible for BuyNow. You may have just won this auction, or the 24-hour time frame to BuyNow may have expired."
+        bid:
+          attributes:
+            base:
+              daily_active_auctions_limit: "Please wait until one of the auctions you are currently participating in has ended. By placing a bid on this item, you might exceed your daily 3 win limit."
+              monthly_active_auctions_limit: "Please wait until one of the auctions you are currently participating in has ended. By placing a bid on this item, you might exceed your monthly 10 win limit."
+              auction_ended: "This auction has ended."
+              need_more_bids: "You don't have any bids left. Please purchase bid credits to participate in an auction."
+              bid_twice: "You just placed a bid; you're currently the highest bidder."
+              daily_win_limit_reached: "You've reached your daily win limit. FirstBargain allows customers to win up to 3 times a day. This gives everyone a fair chance to win."
+              monthly_win_limit_reached: "You've reached your monthly win limit. FirstBargain allows customers to win up to 10 times a month. This gives everyone a fair chance to win."
+              buy_now_used: "You've already exercised the 'Buy Now' option."
+              item_too_expensive: "Only 1 win of the same product with a retail price over $200 is allowed per calendar month."
+            investment:
+              overinvested: "It would be cheaper for you to 'Buy Now' this item than to continue bidding on it."
+      messages:
+        invalid: "contains bad characters or isn't formatted correctly."
+        mx_invalid: "domain doesn't seem to exist. Check your spelling."
+  time:
+    formats:
+      short_date_time: "%m/%d/%y - %I:%M%p"
+      order: "%m/%d/%y at %I:%M%p"
+      admin: "%m/%d/%y - %I:%M:%S%p"
+      auction: "%m/%d %I:%M %p"
+      bid: "%r"
+  attributes:
+    credits: "Bids"
+    bonuses: "Bonus Bids"
+    birth_date: "Date of birth"
+    registration_ip: "Registration IP"
+    current_login_ip: "Current login IP"
+    bids_left: "Number of bids"
+  bids:
+    beginner_limit: "You can only bid on one beginner auction at a time."
+    not_beginner: "Beginner auctions are reserved for customers who have not won anything yet."
+  flash:
+    account:
+      created: "Thank you for registering. Please check your email to verify your account."
+      updated: "Account updated!"
+    activations:
+      activated: "Thank you for verifying your account."
+      account_not_found: "Invalid verification code. If you think this is a mistake, contact us."
+      already_verified: "Your account is already verified."
+      created: "Activation email was resent. Check your spam folder if needed."
+      email_flagged: "We couldn't resend your activation link because your email address is flagged. Please contact us at support@firstbargain.com for further help, and add us to your contact list to ensure we can reach you."
+    addresses:
+      created: "Address saved!"
+      deleted: "Address removed."
+    bids:
+      without_xhr: "You made a bid successfully, but it seems you don't have JavaScript fully enabled. Please check your JavaScript configuration."
+    contact:
+      created: "Thank you for contacting us! We will get back to you within 24 hours."
+      email_flagged: "We could not receive your message because the email address you provided is either invalid or has blacklisted us for spam. Please provide a different email, or use your own email program to send us a message. Sorry for the inconvenience."
+    coupons:
+      created: "You got %{count} bonus bids!"
+    invitations:
+      created: "Invitations sent"
+      email_flagged: "We couldn't deliver your invites. Some of the emails you entered either do not exist or have strict spam filters. Please share your invitation link manually."
+    password_reset:
+      no_account: "No user was found with that email address."
+      sent: "Instructions to reset your password have been emailed to you."
+      success: "Password successfully updated"
+      expired: "Your reset request has expired. Try requesting another reset."
+      email_flagged: "Your email address is flagged; please contact us at support@firstbargain.com directly and add us to your contact list to ensure we can reach you."
+    session:
+      expired_on_registration: "Sorry, but your session has expired. Care to try again?"
+      expired: "Your login session has expired. Please try your last action again."
+      expired_order: "Your session has expired. Please try re-adding your item."
+      must_be_logged_out: "You must be logged out to access this page."
+      deleted: "You've successfully logged out. Goodbye."

@@ -1,0 +1,21 @@
+- content_for :title, "FirstBargain.com - Site Rules"
+
+#flat-page
+  #site-rules-page
+    %h2.site-rules Site Rules
+    .unit
+      %p We created the following rules to ensure that all members have the opportunity to win and enjoy their experience at FirstBargain:
+    .unit
+      %ol
+        %li Only 1 account is allowed per individual and per household.
+        %li You may win up to #{Rails.configuration.daily_win_limit} auctions per day.
+        %li You may win up to #{Rails.configuration.monthly_win_limit} auctions per calendar month.
+        %li You may win 1 auction of the same product with a retail value of over $200 per calendar month (e.g. you can only win a certain Xbox once every calendar month).
+        %li Auction wins must be redeemed within 7 days, after which they expire and can no longer be redeemed.
+        %li "Buy Now" is available for 24 hours after an auction has ended. **
+        %li The use of bots to place bids on auctions is strictly prohibited.
+        %li FirstBargain employees may not participate in any auctions on FirstBargain.com.
+    .unit
+      %p <strong>Please note:</strong> Breaking these rules violates our Terms of Service and will result in the deactivation of all associated customers’ accounts. We cannot honor any items won while in violation of the Terms of Service. Furthermore, refunds will not be processed for any bids used to win auctions while violating the Terms of Service.
+  .disclaimer ** Buy Now is not available on some auctions. Please check each auction before bidding.      
+           

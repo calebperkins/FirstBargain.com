@@ -1,0 +1,31 @@
+#auction-form.admin-form
+  = form_for [:admin, @auction] do |f|
+    - if @auction.errors.any?
+      #errorExplanation
+        %p The following errors occurred:
+        %ul
+          - @auction.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :product
+      = f.collection_select :product_id, @products, :id, :name
+    .field
+      = f.label :ending_at
+      = f.datetime_select :ending_at
+    .field
+      = f.label :price_increment
+      = f.select :price_increment, [["$0.01", 0.01], ["$0.05", 0.05], ["$0.15", 0.15]]
+    .field
+      = f.label :timer_reset
+      = f.select :timer_reset, [["30 seconds", 30], ["20 seconds", 20]]
+    .field
+      = f.label :hot, "Feature when Ended"
+      = f.check_box :hot
+    .field
+      = f.label :is_buy_now
+      = f.check_box :is_buy_now
+    .field
+      = f.label :beginner
+      = f.check_box :beginner
+    .actions#add-item
+      = f.submit "Add Item", :class => "button"

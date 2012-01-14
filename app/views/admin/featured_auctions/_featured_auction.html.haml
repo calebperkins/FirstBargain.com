@@ -1,0 +1,5 @@
+%tr[featured_auction]
+  %td= link_to featured_auction.name, edit_admin_featured_auction_path(featured_auction)
+  %td= featured_auction.auction.ending_at.to_s :admin
+  %td= featured_auction.auction_id
+  %td= link_to 'Edit', edit_admin_featured_auction_path(featured_auction)

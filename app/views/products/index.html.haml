@@ -1,0 +1,16 @@
+- content_for :title, "FirstBargain.com - Member Reward Store"
+
+#reward-store
+  %h2.members-shop Members Shop
+  #store-explanation
+    - if logged_in?
+      %p You have <strong>#{ current_user.points}</strong> in MemberPoints. Redeem now for discounts on popular items.
+    - else
+      %p #{link_to "Sign in", new_session_path} to view your MemberPoints balance. Redeem your points for discounts on popular items.
+  #product-listing
+    #product-filter
+    %table#main-products
+      %tr
+        = render @products
+        = fill_grid @products, "product", 4
+  = pagination @products

@@ -1,0 +1,29 @@
+#auction-form.admin-form
+  = form_for [:admin, @featured] do |f|
+    - if @featured.errors.any?
+      #errorExplanation
+        %p The following errors occured:
+        %ul
+          - @featured.errors.full_messages.each do |msg|
+            %li= msg
+            
+    .field
+      = f.label "Auction ID"
+      - if params[:auction_id] then
+        = f.text_field :auction_id, :value => "#{params[:auction_id]}"
+      - else
+        = f.text_field :auction_id
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :description
+      = f.text_area :description
+    .field
+      = f.label "Image URL"
+      - if params[:auction_id] then
+        = f.text_field :image_url, :value => "#{@auction.product.main_picture.url :medium}"
+      - else
+        = f.text_field :image_url
+    .actions#add-item
+      = f.submit "Add Item", :class => "button"

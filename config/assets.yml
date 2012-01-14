@@ -1,0 +1,38 @@
+javascripts:
+  base:
+    - public/javascripts/sprintf.js
+    - public/javascripts/tiptip.js
+    - public/javascripts/rails.js
+    - public/javascripts/application.js
+    - public/javascripts/poller.js
+  slideshow:
+    - public/javascripts/slideshow.js
+  widget:
+    - public/javascripts/widget.js
+stylesheets:
+  base:
+    - public/stylesheets/base.css
+    - public/stylesheets/dashboard.css
+    - public/stylesheets/flat.css
+    - public/stylesheets/messages.css
+    - public/stylesheets/orders.css
+    - public/stylesheets/product.css
+    - public/stylesheets/tiptip.css
+    - public/stylesheets/jqueryui.css
+  admin:
+    - public/stylesheets/base.css
+    - public/stylesheets/messages.css
+    - public/stylesheets/admin.css
+    - public/stylesheets/jqueryui.css
+  viewer:
+    - public/stylesheets/viewer.css
+  ie:
+    - public/stylesheets/ie.css  
+  ie_seven:
+    - public/stylesheets/ie7.css
+  widget_default:
+    - public/stylesheets/external/widget-default.css
+  appconsumer:
+    - public/stylesheets/external/appconsumer.css
+  dailymakeover:
+    - public/stylesheets/external/dailymakeover.css

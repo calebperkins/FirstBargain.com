@@ -1,0 +1,40 @@
+- content_for :subject, "Welcome to FirstBargain"
+
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Thank you for registering with FirstBargain, an exciting, fast-paced auction site with great bargains and member rewards.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Before you start bidding, we wanted to answer any questions you may have about our site. We believe it is important for you to first understand how our auctions work so you may have the most enjoyable experience on FirstBargain.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px; font-weight:bold;"} How FirstBargain works:
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Each bid costs just $0.75. Bid credits are available in packages of 30, 50, 100 and 200 bids. These bids are pre-paid and credited to your account. Each time you place a bid, one bid credit is deducted from your account. Also, up to 30 seconds is added to the auction timer each time someone bids. This is similar to the “Going once…Going twice…SOLD” approach of traditional auctions, which gives other bidders a chance to make a higher bid if they wish.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} You win the auction if you are the highest bidder when the timer reaches zero. To redeem your win, you simply pay the final auction price plus shipping. If you do not win, the bids you have placed on the auction will not be returned to your account; however, we offer the “Buy Now” feature on most auctions! This feature allows you to use the bids you spent on an auction to buy the same item at a discounted price. See example below:
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Say you placed 40 bids (or $30 worth) on a $50 item, but another bidder wins the auction. Through “Buy Now” you are given the opportunity to purchase the product for its retail value of $50 minus the $30 you spent in bids. Thus, in this example you would be able to buy the item for just $20.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} For more information, see #{ link_to "our rewards page", rewards_url }
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px; font-weight:bold;"} Confirm Your Account:
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Please visit the following link within 24 hours to verify your e-mail address:
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %a{:href => new_activation_url(:code => @account.single_access_token), :style => "color:#EF7A25;"}
+      %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#EF7A25; font-size:13px; line-height:20px;"}
+        = new_activation_url :code => @account.single_access_token
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} An additional e-mail has been sent to you with the same link in case you miss it here!
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px; font-weight:bold;"} Additional Questions or Concerns?

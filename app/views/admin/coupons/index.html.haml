@@ -1,0 +1,17 @@
+#coupon-admin.admin-page
+  .block-first
+    %h2 Coupons
+    %p#add-new-item= link_to "New Coupon", new_admin_coupon_path, :class => "button"
+  .block-middle
+  %table
+    %tr
+      %th.uses-left Uses left
+      %th.ending-time Ends At
+      %th.summary Summary
+      %th.code Code
+    - @coupons.each do |c|
+      %tr
+        %td= c.uses_left
+        %td= c.ends_at.to_s :default
+        %td= c.summary
+        %td= c.code

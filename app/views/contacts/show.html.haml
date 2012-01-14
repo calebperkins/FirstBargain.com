@@ -1,0 +1,25 @@
+%h2.contact-us Contact Us
+#how-to-contact 
+  %p.blurb We always love to hear from our customers. For product inquiries, shipping status, and refund requests, please fill out the form below and we will get back to you in 24 - 48 hours.
+  %p.blurb For questions regarding credit card billing statements, please contact our billing partner:
+  %p.ccbill-contact Website: <a href="http://support.ccbill.com">http://support.ccbill.com</a><br> Phone: 1-877-374-0182 <br> Email: <a href="mailto:ccbillsupport@ccbill.com?subject=Billing Inquiry for FirstBargain.com">ccbillsupport@ccbill.com</a>
+= form_for @contact, :url => contact_path, :html => {:id => "contact-form"} do |f|
+  - if @contact.errors.any?
+    #errorExplanation
+      %p Oops, please correct the following items to proceed:
+      %ul
+        - @contact.errors.full_messages.each do |msg|
+          %li= msg
+  %p.field
+    = f.label :email
+    = f.text_field :email, :value => current_user.try(:email)
+  %p.field
+    = f.label :subject
+    = f.text_field :subject
+  %p.field
+    = f.label :message
+    = f.text_area :message
+  %p.field
+    = captcha
+  %p.actions
+    = f.submit "Submit", :class => "button"

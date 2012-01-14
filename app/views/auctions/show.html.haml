@@ -1,0 +1,87 @@
+- content_for :title, "#{@product.name} going for just #{number_to_currency @auction.going_price} at FirstBargain.com. Auction closes in #{time_ago_in_words @auction.ending_at}!"
+- content_for :description, @product.summary
+- content_for :extra_headers do
+  :javascript
+    RETAIL_PRICE = #{@auction.retail_price};
+    PRICE_INCREMENT = #{@auction.price_increment};
+    TIMER_RESET = #{@auction.timer_reset};
+    var SOURCE = "details";
+    poller([#{@auction.id}], true);
+
+#auction-details
+  .wrapper[@auction]
+    %table.product-name
+      %tr
+        %td
+          %h2= @product.name
+        %td#add-to-watchlist= link_to "Watch", bookmarks_path(:auction_id => @auction.id), :method => :post, :class => "button"
+    .clearfix{:class => auction_classes(@auction)}
+      #main-auction-grid
+        .block-first.clearfix
+          .product-images
+            #viewer= image_tag(@product.main_picture.url(:medium), size: "280x260")
+            %ul#gallery.clearfix
+              - @product.pictures.each do |p|
+                %li[p]
+                  = image_tag(p.data.url(:thumb), size: "70x65")
+                  :javascript
+                    registerRollover("#{dom_id p}", #{p.data.url(:medium).to_json});
+          = render 'runningnumbers'
+          = render 'endnumbers'
+        #product-description
+          %h2 Product Description
+          = simple_format @product.description
+      #secondary-auction-grid
+        //BID HISTORY/ASSISTANT OR REGISTRATION FORM
+        - if logged_in?
+          .block
+            #auction-bid-history
+              #bid-history-wrapper
+                %table#bid-history
+                  %thead
+                    %th.username User
+                    %th.price Price
+                    %th.time Time
+                  %tbody
+                    = render @auction.recent_bids
+          .block
+            #bid-assistant
+              %h3
+                Bid Assistant
+                %a.about-bid-assistant.hasTooltip{:href => "#", :title => "Use the Bid Assistant to bid even while you're away from the computer. You can activate between 3 to 50 Bids at a time."}
+              .clearfix= render "bid_bots/form"
+              .learn-more To learn more about "Bid Assistant", #{ link_to "click here", faq_auctions_path(:anchor=>"5") }.
+        - else
+          #registration-form
+            = render "accounts/form"
+        .block= render 'buynow'
+        .wrapper
+          #social-media.clearfix
+            %p Share this:
+            %ul.left.clearfix-auto
+              %li= facebook_share_auction @auction
+              %li <a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script src="http://platform.twitter.com/widgets.js"></script>
+        .wrapper
+          #guarantee
+            .fb-guarantee= image_tag "text/fb-guarantee.gif"
+            %ul
+              %li Full refund on unused bid credits
+              %li Safe and fair auction environment
+              %li Risk-free rewards program
+              %li All items brand new & 100% authentic
+              %li 14-day return policy
+              %li.learn-more= link_to image_tag("text/product-description-learn-more.gif"), guarantee_path
+  
+  // SHIPPING INFORMATION
+  - unless @auction.product.bid_pack?
+    .shipping-information.clearfix
+      .title Shipping Information
+      .delivery-cost <strong>Delivery Cost:</strong> #{ shipping_price @product }
+      .return-policy
+        <strong>Return Policy:</strong>
+        - if [12,13,14,15,28,29].include? @auction.product.category_id
+          Gift cards are not eligible for returns
+        - else
+          Return within 14 days for any reason
+      .questions <strong>Any Questions?</strong> #{ link_to "Contact Us", contact_path }
+= render 'auction-overlays'

@@ -1,0 +1,18 @@
+%table
+  %caption Weekly Report from #{@since.to_s :default} to #{@now.to_s :default}
+  %tr
+    %td Total # of New Signups
+    %td= @new_signups
+  %tr
+    %td Total # of New Signups that bought at least one bid pack
+    %td= @new_purchasers
+  %tr
+    %td Total # of Returning Users who bought at least one bid pack
+    %td= @old_purchasers
+  %tr
+    %td Total Bid Revenue from New Customers
+    %td= number_to_currency @new_bid_revenue
+  %tr
+    %td Total Bid Revenue from Returning Customers
+    %td= number_to_currency @old_bid_revenue
+  

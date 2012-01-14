@@ -1,0 +1,17 @@
+- content_for :extra_headers do
+  :javascript
+    var SOURCE = "homepage";
+    poller(#{auction_ids @upcoming, @auction}, false, #{auction_prices @upcoming, @auction});
+
+%h2 Upcoming
+%table
+  = render :partial => "upcoming", :collection => @upcoming
+%h2 Main
+- if @auction.finished?
+  = render :file => "landings/finished"
+- else
+  = render :file => "landings/active"
+%h2 Ended
+%table
+  = render :partial => "ended", :collection => @ended
+  

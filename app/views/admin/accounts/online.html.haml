@@ -1,0 +1,22 @@
+#accounts-admin.admin-page
+  .block-first
+    %h2 Online Accounts
+    %p.admin-hints Search by Username, IP, or Email Address
+    = form_tag admin_accounts_path, :method => 'get' do
+      = text_field_tag :s, params[:s]
+      = submit_tag "Search", :name => nil, :class => "blue-button"
+  .block-last
+    %table
+      %tr
+        %th.username Username
+        %th.last-request Last Request
+        %th.bids Bids
+        %th.bonuses Bonuses
+        %th.ip Current IP
+      - @accounts.each do |a|
+        %tr[a]
+          %td= link_to a.username, [:admin, a]
+          %td= a.last_request_at.to_s :default
+          %td= a.credits
+          %td= a.bonuses
+          %td= a.current_login_ip.blank? ? "N/A" : link_to(a.current_login_ip, admin_accounts_path(:s => a.current_login_ip))

@@ -1,0 +1,37 @@
+%tr  
+  %td
+    .product-container.clearfix[upcoming]{:class=> auction_classes(upcoming)}
+      .title
+        %h3= link_to upcoming.product.name, upcoming
+        %p Retail Value: <del>#{number_to_currency upcoming.retail_price}</del>
+      .image
+        = link_to image_tag(upcoming.product.main_picture.url(:thumb), size: "70x65"), upcoming
+      .bid-increment.hasTooltip{:title => increment_title(upcoming)}
+      .sold-overlay
+        = link_to upcoming.product.name, upcoming
+      .timer-container
+        .upcoming-timer loading...
+        .winner-text Winner!
+        .ended-text Ended!
+        %span.timer-reset-clock.hasTooltip{:title => timer_title(upcoming)}
+      .price-container
+        %span.upcoming-price= number_to_currency upcoming.going_price
+      .last-bidder-container
+        %span.upcoming-last-bidder= bidder upcoming.username(@winners)
+      .buttons
+        .main
+          .bid-button
+            - if logged_in?
+              = form_tag auction_bids_path(upcoming), :id => upcoming.id, :remote => true do
+                - if current_user.id == upcoming.account_id
+                  = submit_tag "Bid", :class => "button", :disabled => true, :style => "background-position: 0 -120px"
+                - else
+                  = submit_tag "Bid", :class => "button"
+            - elsif controller_name == "landings"
+              %a(href="#form-landing" class="registration button")
+            - else
+              = link_to "Login", new_session_path, :class => "login button"
+          .winner-button= link_to "Checkout", new_order_path(:buyable => upcoming.id, :kind => :upcoming), :class => "button"
+          .loser-button= link_to "Learn More", auction_path(upcoming, :upcoming_registration => true), :class => "button"
+      - if upcoming.beginner?
+        .upcoming-type-title-area.hasTooltip{:title => "Newcomers should try a beginner upcoming and learn how to bid against other newbies. <br>Same bargains, less competition!"}

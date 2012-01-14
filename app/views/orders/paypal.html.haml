@@ -1,0 +1,35 @@
+#confirm-order.orders-page.clearfix
+  %h2.confirm-your-order Confirm Your Order
+  .left-column-1
+    = render 'cart'
+  .right-column-1
+    #billing-address.wrapper
+      %h3 Billing Address
+      %address
+        %em Billing info. confirmed by PayPal
+    #shipping-address.wrapper
+      %h3 Shipping Address
+      %address
+        - if @order.requires_shipping?
+          #{@order.shipping_name}
+          %br
+          #{@order.shipping_address}
+          - if @order.shipping_address_2?
+            %br
+            #{@order.shipping_address_2}
+          %br
+          #{@order.shipping_city}, #{@order.shipping_state}, #{@order.shipping_zip}
+          %br
+          #{@order.shipping_phone}
+        - else
+          No shipping is required for your purchase.
+    #paypal
+      %h3 Payment Type
+      %p <em>PayPal</em>
+    #place-order
+      %p.tos-agreement By placing your order, you agree to FirstBargain.com's #{link_to "Privacy Policy", privacy_path} and #{link_to "Terms of Service", tos_path}.
+      = form_for @order, :url => orders_path(:secure => true), :remote => true do |f|
+        %p.actions= f.submit "Order Now", :class => "button", :disable_with => "Processing..."
+    #order-processing{:style => "display: none"}
+      %p Your order is being processed. You will be redirected soon.
+      = image_tag 'msc/ajax-loader.gif'

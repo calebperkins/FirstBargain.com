@@ -1,0 +1,4 @@
+$(".credits").text(#{current_user.credits});
+$(".bonuses").text(#{current_user.bonuses});
+auctionDialog("Bidding Unsuccessful", "#{@bid.errors.full_messages.first}");
+A[#{@bid.auction_id}].bidding = false;

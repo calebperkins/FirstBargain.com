@@ -1,0 +1,9 @@
+= form_for(@bot, :url => auction_bid_bot_path(@auction), :remote => true, :html => {:method => :post}) do |f|
+  .controls
+    .start-at
+      = f.label :bid_from, "Start at ($):"
+      = f.number_field :bid_from, :min => 0.0, :step => 0.01, :disabled => @bot.persisted?
+    .bid-limit
+      = f.label :bids_left, '# of Bids:'
+      = f.number_field :bids_left, :min => 3, :max => 50, :disabled => @bot.persisted?
+  = f.submit :class => "button"

@@ -1,0 +1,11 @@
+.bundle
+db/*.sqlite3
+log/resque_worker.*
+log/*.log*
+log/*.db
+tmp/
+dump.rdb
+.DS_Store
+public/assets/
+public/system/
+public/uploads/

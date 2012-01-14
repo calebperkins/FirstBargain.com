@@ -1,0 +1,4 @@
+$(".credits-count").text(#{current_user.credits});
+$(".bonuses-count").text(#{current_user.bonuses});
+$("#bid-status").flash("<p class='success'>Success:</p><p>Bid at #{@bid.created_at.to_s :bid}</p>", 1500);
+A[#{@bid.auction_id}].bidding = false;

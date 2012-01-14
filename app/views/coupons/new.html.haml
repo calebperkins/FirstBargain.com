@@ -1,0 +1,14 @@
+#redeem-coupons-page
+  %h2.redeem-coupon-codes Redeem Coupon Codes
+  %p FirstBargain frequently offer our members special rewards that can be redeemed through the form below.<br /> Follow us on <a class="popup" rel="nofollow" href="//www.facebook.com/FirstBargain">Facebook</a> to be in the know.
+  = form_for @c, :id => "new-coupon", :url => coupons_path do |f|
+    - if @c.errors.any?
+      #errorExplanation
+        %p Oops, please correct the following items to proceed:
+        %ul
+          - @c.errors.full_messages.each do |msg|
+            %li= msg       
+    %p.field  
+      = f.label :code, "Enter Coupon Code:"
+      = f.text_field :code
+      = f.submit "Redeem Coupon", :class => "button"

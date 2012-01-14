@@ -1,0 +1,56 @@
+%table
+  %caption Daily Report from #{@since.to_s :default} to #{@now.to_s :default}
+  %tr
+    %td Bid Revenue (Sum of Bid Pack Purchases)
+    %tc= number_to_currency @bidpacks.revenue
+  %tr
+    %td Auction Revenue (Sum of Final Auction Closing Prices)
+    %td= number_to_currency @auctions.revenue
+  %tr
+    %td Buy Now Revenue (Sum of Exercised Buy Now Prices)
+    %td= number_to_currency @buynows.revenue
+  %tr
+    %td Members Shop Revenue (Sum of Members Shop Purchases)
+    %td= number_to_currency @rewards.revenue
+  %tr
+    %td Auction COGS (Sum of Retail Prices of Ended Auctions)
+    %td= number_to_currency @auctions.cogs
+  %tr
+    %td Buy Now COGS (Sum of Retail Prices of Buy Now Purchases)
+    %td= number_to_currency @buynows.cogs
+  %tr
+    %td Members Shop COGS (Sum of  Retail Prices of Members Shop Purchases)
+    %td= number_to_currency @rewards.cogs
+  %tr
+    %td Total # of Signups
+    %td= @accounts.size
+  %tr
+    %td Total # of Bid Pack Purchases
+    %td= @bidpacks.size
+  %tr
+    %td Total # of Items Auctioned Off
+    %td= @auctions.size
+  %tr
+    %td Total # of Buy Nows
+    %td= @buynows.size
+  %tr
+    %td Total # of Members Shop Purchases
+    %td= @rewards.size
+
+%table
+  %caption Affiliate Report
+  %tr
+    %th Total # of Registrations
+    %td
+      - @a_signups.each_pair do |aff, count|
+        %p= "#{aff || 'None'}: #{count}"
+  %tr
+    %th Total # of Bid Pack Transactions
+    %td
+      - @a_bid_count.each_pair do |aff, count|
+        %p= "#{aff || 'None'}: #{count}"
+  %tr
+    %th Total Value of Bid Pack Transactions
+    %td
+      - @a_bid_value.each_pair do |aff, money|
+        %p= "#{aff || 'None'}: #{number_to_currency money}"

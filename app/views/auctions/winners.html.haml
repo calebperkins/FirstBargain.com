@@ -1,0 +1,33 @@
+- content_for :title, "FirstBargain.com - Previous Auction Winners"
+
+#auctions-history
+  %h2.past-auction-winners
+  .auctions-ended 
+    %table
+      %tr.title
+        %td.image
+        %td.product
+        %td.ended End Time
+        %td.price Total Price Paid
+        %td.savings Savings
+      - @auctions.each do |auction|
+        %tr.auction-listing[auction]{:class => auction_classes(auction) + [cycle('odd','even')]}
+          %td.image
+            = link_to image_tag(auction.product.main_picture.url :small), auction
+          %td.product
+            = link_to auction.product.name, auction
+          %td.ended
+            %span.ended-text Auction Ended<br>
+            #{auction.ending_at.to_s :auction}<br>
+            %span.winner Winner: #{bidder auction.username(@winners)}
+          %td.price
+            %span.auction-price #{ number_to_currency auction.total_winner_price }<br>
+            Reg. Price: <del>#{number_to_currency auction.retail_price}</del>
+          %td.savings
+            #{buy_now_percentage auction.winner_investment, auction} off
+  = pagination(@auctions)
+  - unless logged_in?
+    #get-started
+      %h2.new-to-website New to First Bargain?
+      %p Welcome to FirstBargain.com, a fun and exciting auction website dedicated to bargain seekers.<br>At First Bargain you can win Playstations, iPads, gift cards, and all sorts of other popular products for incredibly low prices.
+      %p= link_to "Register For Free", new_account_path, :id => "signup-for-free", :class => "button"

@@ -1,0 +1,16 @@
+- content_for :subject, "You Won: #{@auction.product.name}"
+
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px; font-weight:bold;"} CONGRATULATIONS YOU WON!
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Redeem your <b>#{@auction.product.name}</b> by following the link below:
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %a{:href => auction_url(@auction), :style => "color:#EF7A25;"}
+      %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#EF7A25; font-size:13px; line-height:20px;"}
+        Click here to claim your win!
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} If you have not already paid for this auction, please make sure to do so within the next #{time_ago_in_words(@auction.ending_at + Rails.configuration.won_auction_expiration)}.

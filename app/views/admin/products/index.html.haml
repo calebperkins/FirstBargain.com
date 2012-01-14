@@ -1,0 +1,33 @@
+#product-admin.admin-page
+  .block-first
+    %h2 Product Listing
+    %p#add-new-item(style="margin-bottom:15px;")= link_to 'Add New Product', new_admin_product_path, :class => "button"
+    %table
+      %thead
+        %tr
+          %th.id ID
+          %th.name Name
+          %th.shipping Shipping
+          %th.cost Cost
+          %th.bids Bids
+          %th.store Store
+          %th.price Price
+          %th.edit
+      %tbody
+        = render @active
+  .block-last
+    %h2 Discontinued Products
+    %p.admin-hints These products will not appear in the add new auction drop-down menu. You may re-enable a product by editing it's properties.
+    %table
+      %thead
+        %tr
+          %th.id ID
+          %th.name Name
+          %th.shipping Shipping
+          %th.cost Cost
+          %th.bids Bids
+          %th.store Store
+          %th.price Price
+          %th.edit
+      %tbody
+        = render @inactive

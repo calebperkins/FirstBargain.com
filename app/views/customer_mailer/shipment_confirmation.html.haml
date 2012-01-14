@@ -1,0 +1,12 @@
+- content_for :subject, "Shipment Confirmation"
+
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"} Your #{@order.contents} has been shipped.
+%tr
+  %td{:width=>"630px", :style=>"padding-top:0px; padding-bottom:20px; text-align:left;"}
+    %span{:style => "font-family:Helvetica,Arial,sans-serif; color:#545454; font-size:13px; line-height:20px;"}
+      - if @order.confirmation?
+        Your confirmation number is #{@order.confirmation}
+      - else
+        Please allow 5 to 10 business days for delivery.

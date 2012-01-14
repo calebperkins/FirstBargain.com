@@ -1,0 +1,6 @@
+#product-admin.admin-page.edit-page
+  %h2 Editing product
+  .nav-links.clearfix
+    = link_to 'Back', admin_products_path, :class => "button back"
+    = link_to 'Show', [:admin, @product], :class => "button show"
+  = render 'form'

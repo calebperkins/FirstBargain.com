@@ -1,0 +1,10 @@
+#header #logo-area h1 a { /* CUSTOMIZE THIS PER AFFILIATE */
+  width: 222px;
+  height: 46px;
+  background: url(../../images/external/appconsumer/logo.gif) no-repeat;
+}
+#header #logo-area .powered-by {
+  width: 135px;
+  height: 20px;
+  background: url(../../images/external/powered-by.gif) no-repeat;
+}

@@ -1,0 +1,53 @@
+#order-success
+  %h2.thank-you Thank You
+  %h3 Your order was successfully processed.
+  %p We're redirecting you to the "Order History" page in <span id="redirect-timer">5</span> second(s).
+  %p If you are having difficulties getting there, #{link_to "please click here", orders_path}.
+
+/ ADBRITE PURCHASES/SALES TRACKER
+<img border="0" hspace="0" vspace="0" width="1" height="1" src="//stats.adbrite.com/stats/stats.gif?_uid=836796&_pid=0" />
+
+
+/ GOOGLE ANALYTICS PURCHASE TRACKER
+:javascript
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17750582-2']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_addTrans',
+    '#{@order.id}', 
+    '',
+    '#{@order.total_price.to_f}',
+    '',
+    '#{@order.shipping_price.to_f}',
+    '',
+    '',
+    ''
+  ]);
+  _gaq.push(['_addItem',
+    '#{@order.id}',
+    '#{@order.buyable_id}',
+    '#{@order.contents}', 
+    '',
+    '#{@order.subtotal.to_f}',
+    '1'
+  ]);
+  _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+:javascript
+  var n = 5;
+  setInterval(function () {
+    if (n > 0) {
+      n--;
+      $("#redirect-timer").text(n);
+    } else {
+      window.location = "#{orders_url(secure:true)}";
+    };
+  }, 1000);
+

@@ -1,0 +1,20 @@
+- content_for :extra_headers do
+  :javascript
+    var SOURCE = "homepage";
+    poller(#{auction_ids @auctions}, false, #{auction_prices @auctions});
+
+= render 'mainsplash'
+
+#auctions-index
+  .block-first
+    %h2.ending-soon
+      Ending soon! Bid now!
+    %table#main-auctions
+      %tr
+        = render @auctions
+        = fill_grid @auctions, "auction", 4
+    = pagination @auctions
+= render 'auction-overlays'
+
+/ Yahoo! remarketing pixel
+-# %img(src="http://ads.bluelithium.com/pixel?id=1052429&t=2" width="1" height="1")

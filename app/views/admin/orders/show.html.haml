@@ -1,0 +1,82 @@
+#orders-admin.admin-page
+  .orders-admin-show
+    %h2 #{@order.paypal? ? "PayPal" : "CCBill"} Order ##{@order.id}
+    %p.nav-links.clearfix
+      = link_to 'Back', admin_orders_path, :class => "button back"
+    .block-first.clearfix
+      .clearfix
+        %table.cart-price
+          %tr
+            %td.label Subtotal:
+            %td.value= number_to_currency @order.subtotal
+          %tr
+            %td.label Shipping:
+            %td.value= number_to_currency @order.shipping_price
+          %tr
+            %td.label Points:
+            %td.value= number_to_currency @order.point_discount
+          %tr
+            %td.label Grand Total:
+            %td.value.pink= number_to_currency @order.total_price
+        %table.user-cart
+          %tr
+            %td.label User:
+            %td.value= link_to @order.account.username, [:admin, @order.account]
+          %tr
+            %td.label #{order_contents_title @order}:
+            %td.value #{order_contents_link @order}
+        .main-product-image= order_picture @order
+    - if @order.requires_shipping?
+      .block-middle
+        %h2 Shipping Address
+        %address
+          #{@order.shipping_name}
+          %br
+          #{@order.shipping_address}
+          - if @order.shipping_address_2?
+            %br
+            #{@order.shipping_address_2}
+          %br
+          #{@order.shipping_city}, #{@order.shipping_state}, #{@order.shipping_zip}
+          %br
+          #{@order.shipping_phone}
+    - if @order.paid?
+      .block-middle
+        %h2 Confirmation Number
+        %p.admin-hints Leave blank to use a default message in the email.
+        = form_for @order, :as => :order, :url => ship_admin_order_path(@order), :method => :put do |f|
+          .field#ship-order
+            %p.clearfix
+              = f.label :confirmation
+              = f.text_field :confirmation
+            %p.clearfix
+              = f.label :tracking_id, "Tracking ID"
+              = f.text_field :tracking_id
+            %p.clearfix
+              = f.label :shipping_company
+              = f.text_field :shipping_company
+              %strong Case sensitive. Use FedEx, UPS, or USPS
+            = f.submit "Ship", :class => "button"
+    .block-middle
+      %h2 Other Actions
+      %p
+        = link_to "Refund Order", refund_admin_order_path(@order), :method => :put, :confirm => "Are you sure you want to refund this?", :class => "orange-button"
+        = link_to "Void Order", void_admin_order_path(@order), :method => :put, :confirm => "Are you sure you want to void this?", :class => "orange-button"
+        - if @order.under_review?  
+          = link_to "Approve Order", approve_admin_order_path(@order), :method => :put, :class => "blue-button"
+    .block-last
+      %h2 Transactions
+      %table
+        %tr
+          %th.create-date Date
+          %th.id(style="width:17%;") ID
+          %th.amount Amount
+          %th.action Action
+          %th.message Message
+        - @order.transactions.each do |t|
+          %tr
+            %td= t.created_at.to_s :default
+            %td= t.authorization
+            %td= number_to_currency t.amount
+            %td= t.action
+            %td.message= t.message

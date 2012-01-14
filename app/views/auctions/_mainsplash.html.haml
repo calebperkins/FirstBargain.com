@@ -1,0 +1,85 @@
+#promo-slideshow
+  .wrapper.clearfix
+    #slideshow-content
+      - if logged_in?
+        .featured(style="display:block; background-image:url(#{@featured.image_url});")
+          %h2= @featured.name
+          %p= @featured.description
+          = link_to "Learn More", @featured.auction, :class => "button"
+        .tips
+          %h2 How to Win on FirstBargain.com
+          %p For tips & tricks:
+          = link_to "Learn More", tips_path, :class => "button"
+        .referral
+          %h2 Earn 20 Bids For Free!
+          %p Tell your friends about FirstBargain and receive 20 FREE Bonus Bids! If your friend signs up and makes a purchase, we’ll credit your account with 20 Bonus Bids. It’s that easy!
+          = link_to "Invite Friends", invitations_path, :class=>"button"
+        .facebook
+          %h2 Follow us on Facebook
+          %p Stay in the loop. You’ll find coupon codes, giveaways, and other great rewards.
+          = link_to "Our Facebook Page", "http://www.facebook.com/FirstBargain", :rel => "nofollow", :class => "button"
+      - else
+        .how-to(style="display:block;")
+          %h2 How Does FirstBargain Work?
+          %h3 Register & Buy Bids
+          %p Buy bids for $0.75 each to participate in auctions.
+          %h3 Choose an Auction
+          %p Pick from HDTV's, iPads, handbags & more.
+          %h3 Bid to Win!
+          %p Bid on an auction, last bidder when timer hits zero WINS!
+          %p.explanation Registration is FREE & easy
+          = link_to "Get Started", new_account_path, :class => "button"
+        .featured(style="background-image:url(#{@featured.image_url});")
+          %h2= @featured.name
+          %p= @featured.description
+          = link_to "Learn More", @featured.auction, :class => "button"
+        .bargains
+
+    #slideshow-navigation
+      %ul
+        - if logged_in?
+          %li.featured
+            .first.current
+              %span Featured Auction
+          %li.tips
+            %div
+              %span Tips for Success
+          %li.referral
+            %div
+              %span Earn 20 Free Bids
+          %li.facebook
+            %div
+              %span Follow us on Facebook
+        - else
+          %li.how-to
+            .first.current
+              %span How It Works
+          %li.featured
+            %div
+              %span Featured Auction
+          %li.bargains
+            %div
+              %span Best Bargains
+
+:javascript
+  $("#slideshow-navigation li").click(function() {
+    var navClass = $(this).attr('class');
+    var slideNav = $("#slideshow-navigation ul").children();
+    var slideContents = $("#slideshow-content").children();
+
+    $(this).children(":first").addClass("current");
+    $("#slideshow-content ." + navClass).show();
+
+    $.each(slideNav, function() {
+      var navClassOthers = $(this).attr("class");
+      if (navClassOthers != navClass) {
+        $(this).children(":first").removeClass("current");
+      }
+    });
+    $.each(slideContents, function() {
+      var contentClass = $(this).attr("class");
+      if (contentClass != navClass) {
+        $(this).hide();
+      }
+    });
+  });

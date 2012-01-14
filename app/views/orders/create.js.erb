@@ -1,0 +1,12 @@
+<% if @order.invalid? %>
+var x = "<p>There were some problems with what you entered on PayPal:</p><ul>"
+<% @order.errors.full_messages.each do |msg| %>
+x += "<li><%= msg %></li>";
+<% end %>
+x += "</ul>";
+$("#order-processing").html(x);
+<% elsif @order.declined? %>
+window.location.replace("../orders/failure");
+<% else %>
+window.location.replace("../orders/success");
+<% end %>

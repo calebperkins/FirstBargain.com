@@ -1,0 +1,54 @@
+.block-first
+  %h2.your-order-history Your order history
+  #order-history-icon-legend
+  #account-order-history
+    %table.order-history-hidden
+      %tr
+        %th.date Purchased Date
+        %th.items Product Description
+        %th.price Total Price
+        %th.status Status
+      - @orders.each do |o|
+        %tr{:class => o.state}
+          %td.date= (o.created_at.to_s :order_history).html_safe
+          %td.items{:class => order_class(o)}
+            = link_to_order o
+            %span.order-id Order ID: #{ o.id }
+          %td.price= number_to_currency o.total_price
+          %td.status= o.state
+    #show-void-declined
+      Show Void & Declined Orders
+.block-last
+  #order-history-key
+    %h3 What are all the steps in the order process?
+    %dl
+      %dt Complete
+      %dd We have successfully charged your Credit Card or PayPal account. Your bid pack should be credited to your account immediately.
+      %dt Paid
+      %dd We have successfully charged your Credit Card or PayPal account. Your order will be processed for shipping.
+      %dt Shipped
+      %dd Your order has left our warehouses and is on its way to you.
+      %dt.hold Processing
+      %dd We are reviewing this order.
+      %dt.hold Refunded
+      %dd Your order has been canceled. Please allow 1 to 2 weeks for the refund to appear on your bank statement.
+      %dt.error On Hold
+      %dd Your order is undergoing some changes.
+      %dt.error Declined
+      %dd We were unable to charge your Credit Card or PayPal account. If any order is declined, please try again after a few minutes. If you are still having problems, please #{ link_to "contact us", contact_path }.
+- if session[:bidpopup] then
+  - session.delete :bidpopup
+  #new-bidder-popup
+    .overlay-popup-toggle= image_tag "msc/close-icon.gif", size: "16x16"
+    .left= image_tag "msc/glasses-book.jpg"
+    %p.welcome Welcome to FirstBargain!
+    %p Here's a few things you need to know to get started:
+    %ul
+      %li Each time you bid, one bid will be deducted from your bids account.
+      %li Also, each time a bid is placed, a maximum of 30 seconds will be added to the clock. This allows time for other bidders to decide if they want to keep bidding or not. Think of an auction, going once... going twice...
+      %li If you are the last bidder when the clock runs out, you are the winner! Once you have won, you will purchase the product for the ending price of the auction.
+      %li If you do not win, you will lose the bids you have placed, however, you can use our "Buy Now" option to purchase the item at retail value, and the cash value of the bids you have placed will be discounted from your total ("Buy Now" is available on <strong>most</strong> products)
+      %li 
+        %p.right= link_to "Start Bidding!", auctions_path, :class => "button"
+        We recommend visiting our #{ link_to "tutorial page", tutorial_path } to familiarize yourself with our bidding process before you place your first bid.
+          

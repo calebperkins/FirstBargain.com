@@ -1,0 +1,32 @@
+#buy-now
+  %h3 Buy Now
+  - if @auction.can_buy_now? current_user
+    .available
+      %p.description Your discounted Buy Now price:
+      .clearfix  
+        %table.highlight
+          %tr.retail-price
+            %td.label Retail value:
+            %td.value= number_to_currency @auction.retail_price
+          %tr.credits-used
+            %td.label - Paid bids used (<span class="credits-used-count">#{ @investment.credits_used }</span>): 
+            %td.value #{ number_to_currency @investment.amount }
+          %tr.bonuses-used
+            %td.label - Bonus bids used (<span class="bonuses-used-count">#{@investment.bonuses_used}</span>):
+            %td.value $0.00
+          %tr.buy-now-price
+            %td.label Buy Now price:
+            %td.value= number_to_currency @auction.buy_now_price(current_user) 
+        %p.button= link_to "Buy Now", new_order_path(:buyable => @auction.id, :kind => :buynow), :class => "button"
+  - elsif @auction.won_by? current_user
+    .unavailable
+      %p Congratulations on winning this auction!
+  - elsif not @auction.is_buy_now
+    .unavailable
+      %p Due to inventory restrictions, <strong>Buy Now</strong> is not available for this product.
+  - elsif @auction.bought_by? current_user
+    .unavailable
+      %p Thank you for exercising the <strong>Buy Now</strong> option.
+  - else
+    .unavailable
+      %p Sorry, <strong>Buy Now</strong> is no longer available for this auction.

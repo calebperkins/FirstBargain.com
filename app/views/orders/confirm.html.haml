@@ -1,0 +1,53 @@
+#confirm-order.clearfix
+  %h2.confirm-your-order Confirm Your Order
+  .left-column-1
+    = render 'cart'
+  .right-column-1          
+    #billing-address.wrapper
+      %h3 Billing Address
+      %address
+        #{@order.billing_name}
+        %br
+        #{@order.billing_address}
+        - if @order.billing_address_2?
+          %br
+          #{@order.billing_address_2}
+        %br
+        #{@order.billing_city}, #{@order.billing_state}, #{@order.billing_zip}
+        %br
+        #{@order.billing_phone}
+    - if @order.requires_shipping?
+      #shipping-address.wrapper
+        %h3 Shipping Address
+        %address
+          #{@order.shipping_name}
+          %br
+          #{@order.shipping_address}
+          - if @order.shipping_address_2?
+            %br
+            #{@order.shipping_address_2}
+          %br
+          #{@order.shipping_city}, #{@order.shipping_state}, #{@order.shipping_zip}
+          %br
+          #{@order.shipping_phone}
+    #credit-card
+      %h3 Credit Card
+      %table
+        %tr
+          %td.label Name on Card:
+          %td.value= @order.billing_name
+        %tr
+          %td.label Credit Card:
+          %td.value
+            - if @order.card_type == "visa"
+              = image_tag "cc/visa.gif", :class => "cc-img"
+            - else
+              = image_tag "cc/mc.gif", :class => "cc-img"
+            %p.card-number= hide_card_number @order.card_number
+        %tr
+          %td.label Expiration Date: 
+          %td.value= @order.card_expires_on.strftime "%m/%Y"
+    #place-order
+      %p.tos-agreement By placing your order, you agree to FirstBargain.com's #{link_to "Privacy Policy", privacy_path} and #{link_to "Terms of Service", tos_path}.
+      = form_for @order, :as => :order, :url => orders_path(:secure => true) do |f|
+        %p.actions= f.submit "Order Now", :class => "button"

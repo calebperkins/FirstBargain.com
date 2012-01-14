@@ -1,0 +1,17 @@
+#reset-password-page
+  %h2.reset-your-password Reset Your Password
+  = form_for @account, :url => password_reset_path(:code => params[:code]) do |f|
+    - if @account.errors.any?
+      #errorExplanation
+        %p Oops, please correct the following items to proceed:
+        %ul
+          - @account.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :password
+      = f.password_field :password
+    .field
+      = f.label :password_confirmation, "Confirm password"
+      = f.password_field :password_confirmation
+    .actions
+      = f.submit "Update Account", :class => "button"

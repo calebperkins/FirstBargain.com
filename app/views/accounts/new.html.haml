@@ -1,0 +1,20 @@
+- content_for :title, "FirstBargain.com - New Account Registration"
+
+#registration-page.penny-promo.clearfix
+  #scroll-out
+    %a(href="#form-landing")
+      = image_tag "promo/registration-heading.jpg", size: "940x86"
+  #splash
+  #penny-head
+  #ended-auctions-text
+  #ended-auctions
+  #thousands-satisfied
+  #registration-wrapper.clearfix
+    %a(name="form-landing")
+    #testimonials
+    #registration-form
+      .header
+      .body
+        = render "form"
+      .footer
+  #penny-quotes

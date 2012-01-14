@@ -1,0 +1,30 @@
+%td.product-listing[product]{:class => product_counter.next.multiple_of?(4) ? "last" : ""}
+  .product-container.clearfix
+    .title
+      %h3= link_to product.name, product
+      %p max. discount: #{number_to_currency product.max_discount}
+    .image
+      = link_to image_tag(product.main_picture.url :index), product
+    %table.discount-numbers
+      %tr.retail-price
+        %td.action
+        %td.label Retail Value:
+        %td.value <del>#{ number_to_currency product.retail_price }</del>
+      %tr.member-points
+        %td.action -
+        %td.label MemberPoints:
+        %td.value #{ number_to_currency product.display_discount(current_user) } 
+      %tr.member-price
+        %td.action =
+        %td.label
+          %span
+            You Pay:
+        %td.value
+          %span.price (#{display_percentage product} off) #{ number_to_currency product.display_price(current_user) }
+    .redeem
+      - if logged_in?
+        = link_to "Redeem MemberPoints", new_order_path(:buyable => product.id, :kind => :reward), :class => "button"
+      - else
+        = link_to "Redeem MemberPoints", new_session_path, :class => "button"
+- if product_counter.next.multiple_of?(4)
+  </tr><tr>

@@ -1,0 +1,54 @@
+.auction-controls.clearfix
+  %table#main-numbers
+    %tr.price
+      %td.label Auction price:
+      %td.value
+        %p
+          %span.auction-price= number_to_currency @auction.going_price
+          %br
+          %span.shipping-price
+            +#{shipping_price @product} Shipping & Handling
+    %tr.bidder
+      %td.label Highest bidder:
+      %td.value
+        %p
+          %span.auction-last-bidder= bidder @auction.username, true
+    %tr.flash
+      %td(colspan="2")
+        %div.flash-text-wrapper
+          %p.auction-flash-text
+          %span.bid-increment.hasTooltip{:title => increment_title(@auction)}
+    %tr.timer  
+      %td(colspan="2")
+        %p
+          %span.auction-timer loading...
+          %span.timer-reset-clock.hasTooltip{:title => timer_title(@auction)}
+    %tr.auction-buttons
+      %td(colspan="2")
+        .wrapper
+          .bid-button
+            - if logged_in?
+              = form_tag auction_bids_path(@auction), :remote => true, :id => @auction.id do
+                - if current_user.id == @auction.account_id
+                  = submit_tag "Bid", :class => "button", :disabled => true, :style => "background-position: 0 -150px"
+                - else
+                  = submit_tag "Bid", :class => "button"
+            - else
+              = link_to "login", new_session_path, :class => "button"
+  %table#current-numbers.highlight
+    %tr.retail-price
+      %td.label Retail value:
+      %td.value <del>#{ number_to_currency @product.retail_price }</del>
+    %tr.price
+      %td.label Auction price:
+      %td.value.auction-price= number_to_currency @auction.going_price
+    %tr.credits-used
+      %td.label Paid bids used (<span class="credits-used-count">#{ @investment.credits_used }</span>):
+      %td.value= number_to_currency @investment.amount
+    %tr.bonuses-used
+      %td.label Bonus bids used (<span class="bonuses-used-count">#{@investment.bonuses_used}</span>):
+      %td.value $0.00
+    %tr.total-price
+      %td.label Total price:
+      %td.value= number_to_currency(@auction.going_price + @investment.amount)
+  #percent-off <span class="percentage">#{buy_now_percentage @investment, @auction}</span> Off

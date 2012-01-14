@@ -1,0 +1,111 @@
+#auction-details
+  .wrapper.history-page.ad-landing-page[@auction]
+    %table.product-name
+      %tr
+        %td
+          %h2= @auction.product.name
+    .auction.clearfix{:class => auction_classes(@auction)}
+      #main-auction-grid
+        .block-first.clearfix
+          .product-images
+            #viewer= image_tag(@product.main_picture.url :medium)
+            %ul#gallery.clearfix
+              - @product.pictures.each do |p|
+                %li[p]
+                  = image_tag(p.data.url(:thumb), size: "70x65")
+                  :javascript
+                    registerRollover("#{dom_id p}","#{p.data.url :medium}");
+          .auction-ended
+            %table.auction-numbers
+              %tr.winner
+                %td.alignC(colspan="2")
+                  %p
+                    Winner: <span class="auction-last-bidder">#{ bidder @auction.username, true }</span>
+                    <span class="bid-increment hasTooltip" title="#{increment_title(@auction)}"></span>
+              %tr.price
+                %td.label Auction Price:
+                %td.value
+                  %span.auction-price= number_to_currency @auction.going_price
+              %tr.credits-used
+                %td.label Paid bids placed by winner (<span class="credits-used-count">#{ @winner_investment.credits_used }</span>):
+                %td.value= number_to_currency @winner_investment.amount
+              %tr.bonuses-used
+                %td.label Bonus bids placed by winner (<span class="bonuses-used-count">#{@winner_investment.bonuses_used}</span>):
+                %td.value $0.00
+              %tr.total-paid
+                %td.label Total paid by winner:
+                %td.value= number_to_currency @auction.total_winner_price
+              %tr.shipping
+                %td.label Shipping & Handling:
+                %td.value +#{shipping_price @product}
+              %tr.retail
+                %td.alignC(colspan="2") Retail Value: <del>#{ number_to_currency @auction.retail_price }</del>
+              %tr.discount
+                %td.alignC(colspan="2") <span class="percentage">#{buy_now_percentage @winner_investment, @auction}</span> Off
+              %tr.ended-text
+                %td.alignC(colspan="2") Auction Ended
+              %tr.time
+                %td.alignC(colspan="2")
+                  #{ @auction.ending_at.to_s :auction }
+            - if @auction.won_by? current_user
+              .winner-button
+                %p.text.blue Congratulations! You've won!
+                - if @auction.redeemed
+                  %p.redeemed Thanks for redeeming this item.
+                - elsif @auction.redemption_expired?
+                  %p.redeemed Sorry, you can no longer redeem this item.
+                - else
+                  %p= link_to "Checkout", new_order_path(:buyable => @auction.id, :kind => :auction), :class => "button"
+            - else
+              .loser-button
+                %p.text Check out our other live auctions:
+                %p= link_to "Home", root_path, :class => "button"
+        #product-description
+          %h2 Product Description
+          = simple_format @product.description
+      #secondary-auction-grid
+        //BID HISTORY/ASSISTANT OR REGISTRATION FORM
+        - if logged_in?
+          .block
+            #auction-bid-history
+              #bid-history-wrapper
+                %table#bid-history
+                  %thead
+                    %th.username User
+                    %th.price Price
+                    %th.time Time
+                  %tbody
+                    = render @auction.recent_bids
+          .block= render 'auctions/buynow'
+        - else
+          #registration-form
+            = render "accounts/form"
+        .wrapper
+          #social-media.clearfix
+            %p Share this:
+            %ul.left.clearfix-auto
+              %li= facebook_share_auction @auction
+              %li <a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script src="http://platform.twitter.com/widgets.js"></script>
+        .wrapper
+          #guarantee
+            .fb-guarantee= image_tag "text/fb-guarantee.gif"
+            %ul
+              %li Full refund on unused bid credits
+              %li Safe and fair auction environment
+              %li Risk-free rewards program
+              %li All items brand new & 100% authentic
+              %li 14-day return policy
+              %li.learn-more= link_to image_tag("text/product-description-learn-more.gif"), guarantee_path
+
+  // SHIPPING INFORMATION
+  - unless @auction.product.bid_pack?
+    .shipping-information.clearfix
+      .title Shipping Information
+      .delivery-cost <strong>Delivery Cost:</strong> #{ shipping_price @product }
+      .return-policy
+        <strong>Return Policy:</strong>
+        - if [12,13,14,15,28,29].include? @auction.product.category_id
+          Gift cards are not eligible for returns
+        - else
+          Return within 14 days for any reason
+      .questions <strong>Any Questions?</strong> #{ link_to "Contact Us", contact_path }

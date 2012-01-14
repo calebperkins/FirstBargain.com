@@ -1,0 +1,6 @@
+<% if @bot.errors.empty? %>
+$("#bid-assistant form").replaceWith("<%= escape_javascript(render('form')) %>");
+A[<%= @auction.id %>].$bid_bot_bids_left = $("#bid_bot_bids_left");
+<% else %>
+auctionDialog("Bid Assistant Unsuccessful", "<%= @bot.errors.full_messages.first %>");
+<% end %>

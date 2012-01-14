@@ -1,0 +1,169 @@
+#accounts-admin.admin-page
+  - if @account.errors.any?
+    .block-first
+      #errorExplanation
+        %p Your changes were not saved:
+        %ul
+          - @account.errors.full_messages.each do |msg|
+            %li= msg
+  .block-middle.clearfix 
+    %table.user-basics
+      %colgroup.label
+      %colgroup.value
+      %tr
+        %td Account ID
+        %td= @account.id
+      %tr
+        %td Email
+        %td= @account.email
+      %tr
+        %td Member Since
+        %td= @account.created_at.to_s :default
+      %tr
+        %td Date of Birth
+        %td= @account.birth_date
+      %tr
+        %td Verification
+        %td= @account.verified ? "<strong>verified</strong>".html_safe : "pending"
+      %tr
+        %td Active Account
+        %td#activation-link= link_to @account.active ? "Yes" : "No", [:admin, @account], :method => :delete, :remote => true, :class => (@account.active ? "positive-admin-button" : "negative-admin-button")
+      %tr
+        %td Valid Email
+        %td#flag-link= link_to @account.good_email ? "Yes" : "No", flag_admin_account_path(@account), :method => :put, :remote => true, :class => (@account.good_email ? "positive-admin-button" : "negative-admin-button")
+      %tr
+        %td Subscribed
+        %td#subscribed-link= link_to @account.subscribed? ? "Yes" : "No", subscribe_admin_account_path(@account), :method => :put, :remote => true, :class => (@account.subscribed? ? "positive-admin-button" : "negative-admin-button") 
+      %tr
+        %td MemberPoints
+        %td= @account.points
+      %tr
+        %td Cumulative Bids
+        %td= @account.cumulative_credits
+      %tr
+        %td Cumulative Bonus Bids
+        %td= @account.cumulative_bonuses
+      %tr
+        %td Affiliate
+        %td= @account.source.blank? ? "---" : @account.source        
+    %table.user-details
+      %colgroup.label
+      %colgroup.value      
+      %tr
+        %td Username
+        %td
+          %strong= @account.username
+      %tr
+        %td Total Spent
+        %td= number_to_currency @account.total_spent
+      %tr
+        %td Bids
+        %td= @account.credits
+      %tr
+        %td Bonus Bids
+        %td= @account.bonuses
+      %tr
+        %td Customer P&L
+        %td= number_to_currency @account.profit_and_loss
+      %tr
+        %td Wins in the Last 7 Days
+        %td= @account.wins_this_week.size
+      %tr
+        %td Wins This Month
+        %td= @account.wins_this_month.size
+      %tr
+        %td Total Wins
+        %td= @account.auctions.inactive.size
+      %tr
+        %td Total Value of Purchases
+        %td= number_to_currency @account.total_cost
+      %tr
+        %td Registration IP
+        %td= @account.registration_ip.blank? ? "---" : link_to(@account.registration_ip, admin_accounts_path(:s => @account.registration_ip))
+      %tr
+        %td Current IP
+        %td= @account.current_login_ip.blank? ? "---" : link_to(@account.current_login_ip, admin_accounts_path(:s => @account.current_login_ip))
+      %tr
+        %td Last IP
+        %td= @account.last_login_ip.blank? ? "---" : link_to(@account.last_login_ip, admin_accounts_path(:s => @account.last_login_ip))
+      %tr  
+        %td Invited By
+        %td= @account.parent ? link_to(@account.parent.username, [:admin, @account.parent]) : "---"  
+  .block-middle
+    %h2 All Won Auctions
+    %table
+      %tr  
+        %th.id Auction ID
+        %th.date End Time
+        %th.status
+        %th.price Price
+        %th.contents Link to Auction
+      - @wins.each do |w|
+        %tr
+          %td= w.id
+          %td= w.ending_at.to_s :default
+          %td
+          %td= number_to_currency w.going_price
+          %td.contents= link_to w.product.name, w
+  .block-middle 
+    %h2 Order History
+    #account-order-history
+      %table.order-history-hidden
+        %tr
+          %th.id Order ID
+          %th.date Order Date
+          %th.status Status
+          %th.price Price
+          %th.contents Content
+        - @orders.each do |o|
+          %tr{:class => o.state}
+            %td= o.id
+            %td= o.created_at.to_s :default
+            %td.status= o.state
+            %td= o.total_price
+            %td.items{:class => order_class(o)}= link_to o.contents, admin_order_path(o)
+      #show-void-declined.blue-button
+        Show Void & Declined Orders
+  -#
+    .block-middle
+      %h2 Bidding History
+      %table
+        %tr
+          %th.id ID
+          %th.date End Date
+          %th.bids Bids
+          %th.bids Bonuses
+          %th.contents Content
+  .block-middle
+    %h2 Admin Interface
+    %p.admin-hints You may enter negative values to deduct that amount.
+    %div(style="margin-bottom:55px;")
+      = form_for [:admin, @account], :url => adjust_admin_account_path do |f|
+        %p.field
+          = f.label :credits_increment
+          = f.text_field :credits_increment
+        %p.field
+          = f.label :bonuses_increment
+          = f.text_field :bonuses_increment
+        %p.field
+          = f.label :points_increment
+          = f.text_field :points_increment
+        %p.actions#update-item
+          = f.submit "Update Item", :class => "button"
+    %div
+      = form_for [:admin, @account] do |f|
+        %p.field
+          = f.label :notes
+          = f.text_area :notes
+        %p.actions#update-item
+          = f.submit "Note", :class => "button"
+  .block-last
+    %h2 Invitations
+    %table
+      %tr
+        %th Name
+        %th Status
+      - @invites.each do |c|
+        %tr
+          %td= link_to c.username, [:admin, c]
+          %td= c.verified ? "verified" : "pending"  

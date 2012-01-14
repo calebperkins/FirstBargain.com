@@ -1,0 +1,114 @@
+- content_for :title, "FirstBargain.com - Purchase Bid Credits"
+    
+#new-bids-order.orders-page
+  %h2.buy-bids Buy Bids and Start Winning
+  .clearfix
+    = form_for @order, :as => :order, :url => confirm_orders_path(:secure => true), :html => {:id => "buy-bid-form", :class => "address-form"} do |f|
+      - if @order.errors.any?
+        #errorExplanation
+          %p Oops, please correct the following items to proceed:
+          %ul
+            - @order.errors.full_messages.each do |msg|
+              %li= msg
+      .left-column-4
+        .wrapper
+          %h3.bid-packages Bid packages
+          -# If you change these quantities or prices, change those in app/models/bid_order.rb as well!
+          %p.bid-pack.clearfix
+            = f.radio_button :quantity, "200"
+            %label(for="order_quantity_200") <span class="size">200 Bids</span><span class="price">$150.00</span>
+          %p.bid-pack.clearfix
+            = f.radio_button :quantity, "100"
+            %label(for="order_quantity_100") <span class="size">100 Bids</span><span class="price">$75.00</span>
+          %p.bid-pack.recommended-bid-pack.clearfix
+            = f.radio_button :quantity, "50", :checked => "checked"
+            %label(for="order_quantity_50") <span class="size">50 Bids</span><span class="price">$37.50</span>
+          %p.bid-pack.clearfix(style="margin-bottom:25px;")
+            = f.radio_button :quantity, "30"
+            %label(for="order_quantity_30") <span class="size">30 Bids</span><span class="price">$22.50</span>
+        #satisfaction-guarantee
+          %ul
+            %li Get a full refund for any unused Bid Credits
+            %li Safe and fair bidding environment 
+            %li All items brand new and 100% authentic
+        %p#us-shipping-only ** We ship only within the contiguous 48 U.S. states
+        
+      .right-column-4
+        = f.hidden_field :gateway, :value => "authorize"
+        %h2.payment Payment Options
+        #payment-tabs
+          %ul.clearfix
+            %li#cc-tab.selected Credit Card
+            %li#pp-tab PayPal
+        #credit-card-form.clearfix
+          -#
+            #checkout-payments
+              %p.field
+                = f.label :first_name
+                = f.text_field :first_name
+              %p.field
+                = f.label :last_name
+                = f.text_field :last_name
+              %p.field.cc-type
+                = f.label :card_type
+                = f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"]]
+                = image_tag "cc/visa-mc.gif", :alt => "visa-mastercard"
+              %p.field
+                = f.label :card_number
+                = f.text_field :card_number, :autocomplete => "off"
+              %p.field.cvv
+                = f.label :card_verification, "CVV"
+                = f.text_field :card_verification, :class => "small", :autocomplete => "off"
+              %p.field
+                = f.label :card_expires_on, "Expiration"
+                = f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year + 10
+            .separator
+          #checkout-address
+            -#
+              %p.field.address
+                = f.label :billing_address
+                = f.text_field :billing_address
+              %p.field.address
+                = f.label :billing_address_2, "Address 2"
+                = f.text_field :billing_address_2
+              %p.field
+                = f.label :billing_city, "City"
+                = f.text_field :billing_city
+              .field.clearfix
+                %p.state
+                  = f.label :billing_state, "State"
+                  = f.select :billing_state, Address::STATES
+                %p.zip
+                  = f.label :billing_zip, "Zip"
+                  = f.text_field :billing_zip, :size => 5, :maxlength => 5
+              %p.field.phone
+                = f.label :billing_phone
+                = f.text_field :billing_phone
+              %p.phone-example e.g. 305-555-0123
+            %p Check out using Visa, MasterCard, or Discover.
+            %p.action
+              = f.submit "Confirm Order", :class => "button" 
+        #paypal-form
+          = image_tag "text/paypal.png"
+          %h3
+            PayPal is the safer, easier way to pay
+          %ul
+            %li Never expose your credit card number.
+            %li Speed through checkout all over the web. One account, one password - no need to retype your shipping or financial information.
+          %p.action
+            = f.submit "Pay with PayPal", :class => "button"
+            
+/ Google Remarketing Tracker for New Customers
+:javascript
+  var google_conversion_id = 1021111885;
+  var google_conversion_language = "en";
+  var google_conversion_format = "3";
+  var google_conversion_color = "666666";
+  var google_conversion_label = "g2aMCLOZrQIQzdzz5gM";
+  var google_conversion_value = 0;
+
+%script(src="//www.googleadservices.com/pagead/conversion.js")
+
+%noscript
+  %div(style="display:inline;")
+    %img(height="1" width="1" src="//www.googleadservices.com/pagead/conversion/1021111885/?label=g2aMCLOZrQIQzdzz5gM&amp;guid=ON&amp;script=0")

@@ -1,0 +1,17 @@
+This is (nearly) all the code that powered FirstBargain.com until it was closed down.
+
+FirstBargain was a penny-auction startup formed by students at Cornell University, founded by Taichi Kasahara and Jing Hui Wang at Cornell University. The Ruby code you see here was written primarily by Caleb Perkins (www.calebperkins.org), also a student. The HAML templates and CSS were written by Jing.
+
+== Server requirements ==
+# Redis
+# Beanstalkd
+# Ruby 1.9.2 or better
+# Rails 3 (3.1 or later not supported yet)
+
+Run as you would any Rails app.
+
+== Caveats ==
+
+This code scaled well in production but there should be more test coverage.
+
+This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License. See the LICENSE for more information.

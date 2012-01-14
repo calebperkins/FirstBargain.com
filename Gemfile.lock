@@ -1,0 +1,192 @@
+GIT
+  remote: git://github.com/asynchrony/image_science.git
+  revision: d33dbad3efaef4ddc3785e135be4006f9e80d2d9
+  specs:
+    image_science (1.3.2.1.Asynchrony)
+
+GEM
+  remote: http://rubygems.org/
+  remote: http://gems.github.com/
+  specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
+    aaronh-chronic (0.3.9)
+    abstract (1.0.0)
+    actionmailer (3.0.9)
+      actionpack (= 3.0.9)
+      mail (~> 2.2.19)
+    actionpack (3.0.9)
+      activemodel (= 3.0.9)
+      activesupport (= 3.0.9)
+      builder (~> 2.1.2)
+      erubis (~> 2.6.6)
+      i18n (~> 0.5.0)
+      rack (~> 1.2.1)
+      rack-mount (~> 0.6.14)
+      rack-test (~> 0.5.7)
+      tzinfo (~> 0.3.23)
+    activemerchant (1.16.0)
+      activesupport (>= 2.3.11)
+      braintree (>= 2.0.0)
+      builder (>= 2.0.0)
+      json (>= 1.5.1)
+    activemodel (3.0.9)
+      activesupport (= 3.0.9)
+      builder (~> 2.1.2)
+      i18n (~> 0.5.0)
+    activerecord (3.0.9)
+      activemodel (= 3.0.9)
+      activesupport (= 3.0.9)
+      arel (~> 2.0.10)
+      tzinfo (~> 0.3.23)
+    activeresource (3.0.9)
+      activemodel (= 3.0.9)
+      activesupport (= 3.0.9)
+    activesupport (3.0.9)
+    arel (2.0.10)
+    authlogic (3.0.3)
+      activerecord (>= 3.0.7)
+      activerecord (>= 3.0.7)
+    bartt-ssl_requirement (1.2.7)
+    beanstalk-client (1.1.0)
+    braintree (2.10.1)
+      builder (>= 2.0.0)
+    builder (2.1.2)
+    capistrano (2.6.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    carrierwave (0.5.6)
+      activesupport (~> 3.0)
+    crack (0.1.8)
+    daemon-spawn (0.4.2)
+    erubis (2.6.6)
+      abstract (>= 1.0.0)
+    factory_girl (1.3.3)
+    factory_girl_rails (1.0.1)
+      factory_girl (~> 1.3)
+      railties (>= 3.0.0)
+    gibbon (0.1.7)
+      activesupport (> 3.0.0)
+      httparty (> 0.6.0)
+      json (> 1.4.0)
+    haml (3.1.2)
+    highline (1.6.2)
+    hoptoad_notifier (2.4.11)
+      activesupport
+      builder
+    httparty (0.7.8)
+      crack (= 0.1.8)
+    i18n (0.5.0)
+    jammit (0.6.3)
+      yui-compressor (>= 0.9.3)
+    jquery-rails (1.0.12)
+      railties (~> 3.0)
+      thor (~> 0.14)
+    json (1.5.3)
+    json_pure (1.5.3)
+    mail (2.2.19)
+      activesupport (>= 2.3.6)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.16)
+    money (3.7.1)
+      i18n (~> 0.4)
+    mysql2 (0.2.11)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.1.4)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
+    newrelic_rpm (3.1.0)
+    open4 (1.1.0)
+    polyglot (0.3.1)
+    rack (1.2.3)
+    rack-mount (0.6.14)
+      rack (>= 1.0.0)
+    rack-test (0.5.7)
+      rack (>= 1.0)
+    rails (3.0.9)
+      actionmailer (= 3.0.9)
+      actionpack (= 3.0.9)
+      activerecord (= 3.0.9)
+      activeresource (= 3.0.9)
+      activesupport (= 3.0.9)
+      bundler (~> 1.0)
+      railties (= 3.0.9)
+    railties (3.0.9)
+      actionpack (= 3.0.9)
+      activesupport (= 3.0.9)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (~> 0.14.4)
+    rake (0.9.2)
+    rdoc (3.8)
+    recaptcha (0.3.1)
+    redis (2.2.1)
+    redis-store (1.0.0.rc1)
+      redis (~> 2.2.0)
+    spectator-validates_email (0.0.7)
+      actionpack (~> 3.0.0)
+      activemodel (~> 3.0.0)
+    sqlite3 (1.3.3)
+    sqlite3 (1.3.3-x86-mingw32)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
+    stalker (0.9.0)
+      beanstalk-client
+      json_pure
+    state_machine (1.0.1)
+    tabs_on_rails (2.0.2)
+    thor (0.14.6)
+    timecop (0.3.5)
+    treetop (1.4.9)
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.29)
+    whenever (0.6.8)
+      aaronh-chronic (>= 0.3.9)
+      activesupport (>= 2.3.4)
+    will_paginate (3.0.pre2)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
+
+PLATFORMS
+  ruby
+  x86-mingw32
+
+DEPENDENCIES
+  activemerchant
+  authlogic
+  bartt-ssl_requirement
+  capistrano
+  carrierwave
+  daemon-spawn
+  factory_girl_rails
+  gibbon
+  haml
+  hoptoad_notifier
+  image_science!
+  jammit
+  jquery-rails
+  money
+  mysql2 (~> 0.2.7)
+  newrelic_rpm (>= 3.1.0)
+  rails (= 3.0.9)
+  recaptcha
+  redis
+  redis-store (>= 1.0.0.beta4)
+  spectator-validates_email
+  sqlite3-ruby
+  stalker
+  state_machine (>= 0.9.4)
+  tabs_on_rails (>= 1.3.1)
+  timecop
+  whenever
+  will_paginate (>= 3.0.pre2)

@@ -1,0 +1,30 @@
+%h2.edit-account
+  Edit Account Information
+= form_for current_user, :url => account_path(:secure => true), :html => {:id => "update-account", :class => "dashboard-form"} do |f|
+  - if current_user.errors.any?
+    #errorExplanation
+      %p Oops, please correct the following items to proceed:
+      %ul
+        - current_user.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :username, "Username"
+    = f.text_field :username
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation, "Confirm password"
+    = f.password_field :password_confirmation
+  .field(style="margin-bottom:15px;")
+    = f.label :birth_date
+    = f.date_select :birth_date, :start_year => 1910, :end_year => Time.now.year
+  .checkbox-agreements
+    = f.check_box :subscribed 
+    %p
+      = f.label :subscribed, "Yes, please send me coupons and exclusive offers via FirstBargain newsletters."
+  .actions
+    = f.submit "Update Account", :class => "button"

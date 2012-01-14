@@ -1,0 +1,20 @@
+#new-order.orders-page
+  %h2.my-shopping-cart My Shopping Cart
+  .clearfix
+    = form_for @order, :as => :order, :url => confirm_orders_path(:secure => true), :html => {:class => "address-form"} do |f|
+      - if @order.errors.any?
+        #errorExplanation
+          %p Oops, please correct the following items to proceed:
+          %ul
+            - @order.errors.full_messages.each do |msg|
+              %li= msg
+      .left-column-4
+        #product-shipping
+          = render 'cart'
+        #us-shipping-only= image_tag ("msc/us-flag.gif")
+      .right-column-4
+        #checkout-payments
+          = f.hidden_field :kind, :value => kind(@order)
+          = f.hidden_field :buyable, :value => buyable(@order)
+          = f.hidden_field :gateway, :value => "authorize"
+          = render :partial => 'payment_fields', :locals => {:f => f}

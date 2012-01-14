@@ -1,0 +1,65 @@
+%h2.payment Payment Options
+#payment-tabs
+  %ul.clearfix
+    %li#cc-tab.selected Credit Card
+    %li#pp-tab PayPal
+#credit-card-form.clearfix
+  %p Check out using Visa, MasterCard, or Discover.
+  -#
+    #checkout-payments
+      %p.field
+        = f.label :first_name
+        = f.text_field :first_name
+      %p.field
+        = f.label :last_name
+        = f.text_field :last_name
+      %p.field.cc-type
+        = f.label :card_type
+        = f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"]]
+        = image_tag "cc/visa-mc.gif", :alt => "visa-mastercard"
+      %p.field
+        = f.label :card_number
+        = f.text_field :card_number, :autocomplete => "off"
+      %p.field.cvv
+        = f.label :card_verification, "CVV"
+        = f.text_field :card_verification, :class => "small", :autocomplete => "off"
+      %p.field
+        = f.label :card_expires_on, "Expiration"
+        = f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year + 10, :add_month_numbers => true
+    .separator
+  #checkout-address
+    -#
+      %p.field.address
+        = f.label :billing_address
+        = f.text_field :billing_address
+      %p.field.address
+        = f.label :billing_address_2, "Address 2"
+        = f.text_field :billing_address_2
+      %p.field
+        = f.label :billing_city, "City"
+        = f.text_field :billing_city
+      .field.clearfix
+        %p.state
+          = f.label :billing_state, "State"
+          = f.select :billing_state, Address::STATES
+        %p.zip
+          = f.label :billing_zip, "Zip"
+          = f.text_field :billing_zip, :size => 5, :maxlength => 5
+      %p.field.phone
+        = f.label :billing_phone
+        = f.text_field :billing_phone
+      %p.phone-example e.g. 305-555-0123
+    - if @order.requires_shipping?
+      = render :partial => 'shipping_address_fields', :locals => {:f => f}
+    %p.action
+      = f.submit "Confirm Order", :class => "button" 
+
+#paypal-form
+  = image_tag "text/paypal.png"
+  %h3
+    PayPal is the safer, easier way to pay
+  %ul
+    %li Never expose your credit card number.
+    %li Speed through checkout all over the web. One account, one password - no need to retype your shipping or financial information.
+  %p.action
+    = f.submit "Pay with PayPal", :class => "button"

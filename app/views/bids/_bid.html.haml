@@ -1,0 +1,4 @@
+%tr
+  %td= bidder bid.username
+  %td= number_to_currency bid.price(bid_counter)
+  %td.time= bid.created_at.to_s :bid

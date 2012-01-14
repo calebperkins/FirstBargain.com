@@ -1,0 +1,466 @@
+body#admin h2 {
+  text-indent: 0;
+  font: 1.75em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 10px;
+}
+body#admin h2 span {
+  font-size: 0.8em;
+}
+/*
+ * ADMIN NAVIGATION
+ */
+body#admin #main-menu {
+  background: url(../images/header/nav-bg.png);
+  height: 40px;
+  margin-left: -5px;
+  width: 990px;
+  margin-bottom: 25px;
+}
+body#admin #main-menu li {
+  float: left;
+  border-right: #ccc;
+}
+body#admin #main-menu li a {
+  display: block;
+  padding: 0 20px;
+  margin: 5px 0;
+  height: 25px;
+  line-height: 25px;
+  color: #a19ba1;
+  font-size: 13px;
+  font-weight: bold;
+  border-right: 1px dotted #7c7c7c;
+  outline: 0 none;
+}
+body#admin #main-menu li a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+body#admin #main-menu li.last {
+  float: right;
+}
+body#admin #main-menu li.last a {
+  border-right: 0 none;
+}
+/*
+ * ADMIN TABLES
+ */
+body#admin table {
+  margin-bottom: 15px;
+}
+body#admin table th {
+  border-bottom: 2px solid #ccc;
+  line-height: 1.4em;
+  font-size: 1.0em;
+  font-weight: bold;
+}
+body#admin table th.name {
+  width: 28%;
+}
+body#admin table td.label {
+  width: 80px;
+  padding-right: 10px;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: top;
+  border: 0 none;
+  line-height: 1.5em;
+}
+body#admin table td.value {
+  border: 0 none;
+  line-height: 1.5em;
+}
+#product-admin table th.id {
+  width: 15%;
+}
+#product-admin table th.name {
+	width: 37%!important;
+}
+#product-admin table td.id {
+  padding-right: 1em;
+}
+#product-admin table td.name {
+  line-height: 1.3em;
+  padding-right: 1em;
+}
+#product-admin table th.price {
+  width: 10%;
+}
+.admin-page table th.edit, .admin-page table th.remove {
+  width: 5%;
+}
+#auction-admin table th.time {
+  width: 25%;
+}
+#auction-admin table th.price {
+  width: 10%;
+}
+.admin-page table td {
+  line-height: 3.0em;
+  border-bottom: 1px dotted #ddd;
+  font-size: 0.9em;
+}
+#category-admin .category .name {
+  line-height: 1.3em;
+  width: 50%;
+}
+/*
+ * ADMIN FORMS
+ */
+#product-form {
+  margin-bottom: 25px;
+}
+.admin-page .field label {
+  width: 150px;
+}
+.admin-page .field span {
+  font-size: 0.8em;
+  padding-left: 65px;
+}
+input.short {
+  width: 75px;
+}
+input.wide {
+  width: 300px;
+}
+#product-form textarea {
+  width: 660px;
+  height: 400px;
+  border: 1px solid #CDCED0;
+  font-size: 12px;
+  padding: 0.6em;
+  color: #808080;
+  overflow-y: scroll;
+}
+body#admin input[type="checkbox"] {
+  margin: 9px auto;
+} 
+#product-form .main {
+  margin-bottom: 25px;
+}
+#product-form .secondary {
+  margin-bottom: 5px;
+}
+#product-form .picture {
+  float: left;
+}
+#product-form .summary {
+  float: left;
+}
+/*
+  ADMIN BUTTONS
+*/
+/* BACK-EDIT-SHOW NAVIGATION LINKS */
+.admin-page .nav-links {
+  margin-bottom: 35px;
+}
+.admin-page .nav-links a {
+  float: left;
+  margin-right: 25px;
+}
+.admin-page .nav-links .button, .admin-page #ship-order .button {
+  height: 23px;
+  width: 103px;
+}
+.admin-page .nav-links .back {
+  background: url(../images/buttons/backarrow.png);
+}
+.admin-page .nav-links .show {
+  background: url(../images/buttons/showarrow.png);
+}
+.admin-page .nav-links #view-on-site {
+  background: url(../images/buttons/viewonsite.png);
+}
+
+.admin-page .nav-links #feature-item {
+  background: url(../images/buttons/feature-item.png);
+}
+
+.admin-page .nav-links .edit {
+  background: url(../images/buttons/editarrow.png);
+}
+/* ADD NEW ITEM BUTTON */
+.admin-page #add-new-item .button {
+  height: 23px;
+  width: 153px;
+  background: url(../images/buttons/admin-new-items.gif);
+}
+#product-admin #add-new-item .button {
+  background-position: 0 -25px;
+}
+#brands-admin #add-new-item .button {
+  background-position: 0 -50px;
+}
+#category-admin #add-new-item .button {
+  background-position: 0 -75px;
+}
+#coupon-admin #add-new-item .button {
+  background-position: 0 -100px;
+}
+.admin-page .field#ship-order p {
+  margin-bottom: 5px;
+}
+.admin-page #ship-order .button {
+  background: url(../images/buttons/ship.gif);
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  margin-left: 160px;
+}
+.admin-page .field#ship-order p strong {
+  font-size: 0.9em;
+} 
+/* ADD ITEM BUTTON */
+.admin-page #add-item {
+  margin-bottom: 0;
+}
+.admin-page #add-item .button {
+  height: 34px;
+  width: 145px;
+  background: url(../images/buttons/add-item.gif);
+}
+.edit-page #add-item .button, .admin-page #update-item .button {
+  height: 34px;
+  width: 145px;
+  background: url(../images/buttons/edit-item.png);
+}
+.admin-page #add-item .button:hover, .edit-page #add-item .button:hover, .admin-page #update-item .button:hover {
+  background-position: 0 -34px;
+}
+.admin-page .actions {
+  margin-top: 25px;
+  padding-left: 157px;
+}
+/* ORDERS */
+#orders-admin h2 {
+  text-transform: capitalize;
+}
+#orders-admin th.id {
+  width: 13%; 
+}
+#orders-admin th.username {
+  width: 18%;
+}
+#orders-admin th.contents {
+  width: 31%;
+}
+#orders-admin th.price {
+  width: 8%;
+}
+#orders-admin th.create-date {
+  width: 15%;
+}
+#orders-admin th.ship-date {
+  width: 15%;
+}
+#orders-admin th.amount, #orders-admin th.action {
+  width: 10%;
+}
+#orders-admin td.message, #orders-admin td.content {
+  line-height: 1.3em;
+}
+#orders-admin form {
+  color: #3B3B3B;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* ACCOUNTS */
+#accounts-admin th.username {
+  width: 20%;
+}
+#accounts-admin th.join-date {
+  width: 17%;
+}
+#accounts-admin th.bids, #accounts-admin th.bonuses, #accounts-admin th.points {
+  width: 10%;
+}
+#accounts-admin table.user-basics {
+  float: left;
+  width: 45%;
+  margin-right: 55px;
+}
+#accounts-admin table.user-basics td, #accounts-admin table.user-details td {
+  padding-left: 10px;
+}
+#accounts-admin table colgroup.label {
+  width: 150px;
+  background: #f7f7f7;
+}
+#accounts-admin table colgroup.value {
+  padding-left: 10px;
+}
+#accounts-admin table.user-details {
+  float: left;
+  width: 40%;
+}
+#accounts-admin th.id {
+  width: 13%;
+}
+#accounts-admin th.date {
+  width: 15%;
+}
+#accounts-admin th.price, #accounts-admin th.status {
+  width: 10%;
+}
+.admin-page p.admin-hints {
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #0088CC;
+}
+#account-order-history td.items {
+  padding: 5px 10px 5px 40px;
+}
+#account-order-history td.auction-win {
+  background: url(../images/icons/winner-trophy.png) no-repeat left center;
+}
+#account-order-history td.auction-buy-now {
+  background: url(../images/icons/buynow-trophy.png) no-repeat left center;
+}
+#account-order-history td.membershop-purchase {
+  background: url(../images/icons/discount-piggy.png) no-repeat left center;
+}
+#account-order-history td.bid-pack-purchase {
+  background: url(../images/icons/bids-single.png) no-repeat left center;
+}
+#account-order-history .order-history-hidden tr.declined, #account-order-history .order-history-hidden tr.void {
+  display: none;
+}
+#account-order-history tr.declined, #account-order-history tr.void {
+  background: #fae2e2;
+}
+#accounts-admin #show-void-declined {
+  font-weight: bold;
+  font-size: 13px;
+}
+#accounts-admin #show-void-declined:hover {
+  cursor: pointer;
+}
+/* AUCTIONS */
+#auction-admin p.auction-details {
+  margin-bottom: 3px;
+}
+#auction-admin p.auction-details strong {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  width: 100px;
+  text-align: right;
+  margin-right: 5px;
+}
+/* PRODUCTS */
+#product-admin table#product-show td.label {
+  width: 120px;
+}
+table#product-show td.value ul, table#product-show td.value ol {
+  list-style-position: inside;
+}
+table#product-show td.value ul {
+  list-style-type: disc;
+}
+table#product-show td.value p, table#product-show td.value ul, table#product-show td.value ol {
+    line-height: 1.4em;
+    margin-bottom: 15px;
+}
+/* COUPONS */
+#coupon-admin th.code {
+  width: 22%;
+}
+#coupon-admin th.ending-time {
+  width: 18%;
+}
+#coupon-admin th.uses-left {
+  width: 15%;
+}
+#coupon-admin .field span {
+  padding-left: 5px;
+}
+#coupon-admin .field input#coupon_bonuses {
+  width: 60px;
+}
+/* ORDERS */
+#orders-admin table.cart-price {
+  width: 20%;
+  float: left;
+  margin-right: 25px;
+}
+#orders-admin table.cart-price .pink-1 {
+  font-weight: bold;
+}
+#orders-admin table.user-cart {
+  width: 45%;
+  float: left;
+}
+#orders-admin .main-product-image {
+  float: left;
+  margin-top: -130px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+}
+#orders-admin .main-product-image img {
+}
+#orders-admin .orders-admin-show .block-first {
+  margin-bottom: 0;
+}
+/* ANALYTICS */
+#analytics-admin select#content {
+  padding-bottom: 0.6em;
+  min-height: 0;
+}
+/* ADMIN BUTTONS */
+.orange-button, .blue-button {
+  font-family: "Helvetica Neue", Helvetica, Arial,sans-serif;
+  font-size: 0.9em;
+  border-color: #dc45df;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 0.35em 0.5em;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f38c41), to(#cc6215));
+  background: -moz-linear-gradient(-90deg, #f38c41, #cc6215);
+  text-shadow: 0 -1px 0 #974c15;
+  color: #fff;
+  display: inline-block;
+  margin-right: 5px;
+}
+.blue-button {
+  background: -webkit-gradient(linear, left top, left bottom, from(#22aae9), to(#1c85c1));
+  background: -moz-linear-gradient(-90deg, #22aae9, #1c85c1);
+  text-shadow: 0 -1px 0 #23668c;
+}
+.orange-button:hover, .blue-button:hover {
+  text-decoration: none;
+}
+a.orange-button, a.blue-button {
+  padding: 0.45em 0.7em;
+  font-weight: bold;
+}
+a.positive-admin-button, a.negative-admin-button {
+  font-size: 0;
+  text-indent: -9999px;
+  display: block;
+  outline: 0 none;
+  height: 25px;
+  width: 60px;
+  background: url(../images/buttons/pos-neg-admin-btn.png) no-repeat;
+}
+a.negative-admin-button {
+  background-position: 0 -35px;
+}
+/* CATEGORIES */
+#category-admin input {
+  float: left;
+  margin-right: 5px;
+  line-height: 32px;
+}
+#category-admin input[type="submit"] {
+  margin: 4px 0;
+}
+#category-admin table.categories {
+  width: 60%;
+}
+#export-as-xml {
+  font-size: 0.8em;
+  margin-bottom: 25px;
+}

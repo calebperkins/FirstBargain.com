@@ -1,0 +1,28 @@
+#coupon-admin.admin-page
+  .admin-form
+    %h2 New Coupon
+    = form_for @c, :url => admin_coupons_path do |f|
+      - if @c.errors.any?
+        #errorExplanation
+          %p The following errors occurred:
+          %ul
+            - @c.errors.full_messages.each do |msg|
+              %li= msg
+      %p.field
+        = f.label :code
+        = f.text_field :code
+      %p.field
+        = f.label :summary
+        = f.text_field :summary
+      %p.field
+        = f.label :ends_at
+        = f.datetime_select :ends_at
+      %p.field
+        = f.label :bonuses
+        = f.text_field :bonuses
+      %p.field
+        = f.label :uses_left, "Uses Left"
+        #{ f.text_field :uses_left }
+        %span (leave blank for no limit)
+      %p.actions#add-item
+        = f.submit "Add Item", :class => "button"

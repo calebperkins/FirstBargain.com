@@ -1,0 +1,45 @@
+- content_for :title, "FirstBargain.com - Frequently Asked Questions"
+
+#faq-page-index
+  %h2.faq Frequently Asked Questions
+  .wrapper
+    .row.clearfix
+      .column.new-users
+        = link_to "New to FirstBargain?", faq_new_user_path, :class => "button"
+        %ul
+          %li= link_to "How to Participate", faq_new_user_path
+          %li= link_to "Verify Email Address", faq_new_user_path
+          %li= link_to "Purchase Bid Credits", faq_new_user_path
+          %li= link_to "Read Bidding Tips", faq_new_user_path
+          %li= link_to "Choose an Auction", faq_new_user_path
+      .column.auctions
+        = link_to "Auctions & Bidding", faq_auctions_path, :class => "button"
+        %ul
+          %li= link_to "FirstBargain Auctions Explained", faq_auctions_path
+          %li= link_to "Winning an Auction", faq_auctions_path
+          %li= link_to "What Happens if I Don't Win?", faq_auctions_path
+          %li= link_to "What are Beginner Auctions?", faq_auctions_path
+          %li= link_to "What is the Bid Assistant?", faq_auctions_path
+      .column.last.account
+        = link_to "My Account", faq_account_path, :class => "button"
+        %ul
+          %li= link_to "Accessing the \"My Account\" Page", faq_account_path
+          %li= link_to "Change Username or Password", faq_account_path
+          %li= link_to "Forgot Password?", faq_account_path
+          %li= link_to "Change Email Address", faq_account_path
+          %li= link_to "Refer Friends", faq_account_path
+          %li= link_to "Redeem Coupons", faq_account_path
+    .row.clearfix
+      .column.shipping
+        = link_to "Shipping & Returns", faq_shipping_path, :class => "button"
+        %ul
+          %li= link_to "Order Status", faq_shipping_path
+          %li= link_to "Shipping Costs", faq_shipping_path
+          %li= link_to "Delivery Times", faq_shipping_path
+          %li= link_to "Refund & Returns", faq_shipping_path
+      .column.payment
+        = link_to "Payment Information", faq_payment_path, :class => "button"
+        %ul
+          %li= link_to "Accepted Payment Methods", faq_payment_path
+          %li= link_to "Is My Credit Card Information Safe?", faq_payment_path
+          %li= link_to "Your Credit Card Billing Statement", faq_payment_path

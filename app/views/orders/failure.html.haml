@@ -1,0 +1,8 @@
+#order-failure
+  %h2.were-sorry We're sorry
+  %p <code>Error code: #{@msg}</code>
+  - if @order.paypal?
+    %p PayPal has declined the transaction.<br>Perhaps your PayPal account balance is too low, or your PayPal credit card is not verified.
+  - else
+    %p Our credit card processor has declined the transaction.<br>Perhaps the billing address you provided does not match that of the cardholder's, or the CVV may be incorrect.
+  %p Please #{link_to "try again", root_path} with a different payment method and contact #{mail_to "support@firstbargain.com", "customer support", :subject => "Billing Help"} if you continue to have problems.

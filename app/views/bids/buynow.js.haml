@@ -1,0 +1,9 @@
+$('#buy-now-popup .credits-used .value').text("#{number_to_currency @bid.investment.amount}");
+$('#buy-now-popup .buy-now-price .value').text("#{number_to_currency @auction.buy_now_price(current_user)}");
+$('#buy-now-popup .credits-used-count').text("#{@bid.investment.credits_used}"); 
+$('#buy-now-popup .bonuses-used-count').text("#{@bid.investment.bonuses_used}");
+$('#buy-now-popup .popup-product-name').text("#{@auction.product.name}");
+$('#buy-now-popup .retail-price .value').text("#{number_to_currency @auction.retail_price}");
+$('#buy-now-popup .button').attr('href', "#{new_order_path :buyable => @auction.id, :kind => :buynow}");
+$("#buy-now-popup").show();
+A[#{@bid.auction_id}].bidding = false;

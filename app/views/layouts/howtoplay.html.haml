@@ -1,0 +1,30 @@
+!!! 5
+%html
+  %head
+    = render 'layouts/meta'
+    = csrf_meta_tag
+    = include_stylesheets :base
+    = javascript_include_tag :cdn
+    = include_javascripts :base
+    = load_affiliate_stylesheet
+    = render 'layouts/ie'
+  %body#tutorial
+    #main-wrapper
+      #container
+        = render 'layouts/header'
+        #content.padded.clearfix-auto
+          #flat-page
+            #tips-rules-wrapper
+              = link_to "Bidding Tips", tips_path, :class => "button", :id => "bidding-tips-link"
+              = link_to "Site Rules", rules_path, :class => "button", :id => "site-rules-link"
+            %h2.how-to-play How It Works
+            #how-to-menu
+              = tabs_tag :namespace => :sidebar do |t|
+                = t.play "How it Works", tutorial_path, :id => "auctions-tab"
+                = t.rewards "Member Rewards", rewards_path, :id => "rewards-tab"
+                = t.guarantee "First Bargain Guarantee", guarantee_path, :id => "guarantee-tab"
+            .current-page
+              = yield
+      #container-bottom
+    = render 'layouts/footer'
+    = render 'layouts/msc'

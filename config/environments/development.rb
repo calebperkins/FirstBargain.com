@@ -27,6 +27,6 @@ FirstBargain::Application.configure do
 
   SslRequirement.disable_ssl_check = true
 
-  config.paypal = ActiveMerchant::Billing::PaypalExpressGateway.new(test: true, login: "expedi_1278081544_biz_api1.gmail.com", password: "1278081548", signature: "A0ZeH-pLSu6Oi15OEJkSBy5Gi2NuAbNHcC3bPb4HvOBTSQa3JH2mzsvQ")
+  config.paypal = ActiveMerchant::Billing::PaypalExpressGateway.new(test: true, login: "LOGIN@example.com", password: "PASSWORD", signature: "SIGNATURE")
 
 end

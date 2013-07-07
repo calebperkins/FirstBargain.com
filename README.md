@@ -5,12 +5,16 @@ FirstBargain was a penny-auction startup founded by students at Cornell Universi
 Server requirements
 ===================
 
-# Redis
-# Beanstalkd
-# Ruby 1.9.2 or better
-# Rails 3 (3.1 or later not supported yet)
+* Redis
+* Beanstalkd
+* Ruby 1.9.2 or better
+* Rails 3 (3.1 or later not supported yet)
+* Rack based server
 
-Run as you would any Rails app.
+Getting started
+===============
+
+Make sure Redis and Beanstalkd are running. Run `bundle` followed by `rake db:schema:load`. Start up some workers via `lib/heartbeat start` and `lib/stalker_worker start`.
 
 Caveats
 =======
